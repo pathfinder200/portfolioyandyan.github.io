@@ -1,0 +1,1472 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Alex Yandyan Sketchbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Reenie+Beanie&family=Rubik+Doodle+Shadow&family=Anton&family=Karantina:wght@300;400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* Layout concept: a product-design student's graph-paper sketchbook (blueprint at night).
+   Works are taped-in sketches; clicking one blows it apart and opens the full case study. */
+:root{
+  --paper:#f4f6f2; --grid:rgba(60,115,190,.13); --grid-major:rgba(60,115,190,.24);
+  --ink:#16151b; --ink-soft:#5a5664; --card:#fffefa;
+  --violet:#9a2fe0; --yellow:#ffe01a; --red:#e5322b; --tape:rgba(255,224,26,.62);
+  --shadow:rgba(22,21,27,.16);
+  --f-display:"Rubik Doodle Shadow","Caveat Brush",cursive;
+  --f-head:"Caveat Brush","Comic Sans MS",cursive;
+  --f-note:"Reenie Beanie","Caveat Brush",cursive;
+  --f-body:"Courier Prime","Courier New",ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,56px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0d1a2e; --grid:rgba(150,190,255,.10); --grid-major:rgba(150,190,255,.2);
+  --ink:#e9efff; --ink-soft:#9fb0cf; --card:#132643;
+  --violet:#c48dff; --yellow:#ffe14d; --red:#ff6b5e; --tape:rgba(255,225,77,.38);
+  --shadow:rgba(0,0,0,.45); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0d1a2e; --grid:rgba(150,190,255,.10); --grid-major:rgba(150,190,255,.2);
+  --ink:#e9efff; --ink-soft:#9fb0cf; --card:#132643;
+  --violet:#c48dff; --yellow:#ffe14d; --red:#ff6b5e; --tape:rgba(255,225,77,.38);
+  --shadow:rgba(0,0,0,.45); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+  color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.6;
+  overflow-x:hidden;
+}
+@media (pointer:fine){ html.chick-on, html.chick-on *{cursor:none!important} }
+a{color:inherit}
+::selection{background:var(--yellow);color:#16151b}
+:focus-visible{outline:3px dashed var(--violet);outline-offset:4px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:var(--gutter)}
+
+/* hand-drawn border helper */
+.sk{position:relative}
+.sk::before{content:"";position:absolute;inset:0;border:2.2px solid var(--ink);border-radius:6px 14px 8px 12px/12px 6px 14px 8px;filter:url(#wob);pointer-events:none}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding-block:14px;
+  background:linear-gradient(var(--paper) 70%,transparent)}
+.nav .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo{font-family:var(--f-head);font-size:34px;line-height:1;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo svg{width:44px;height:44px}
+.nav ul{display:flex;gap:6px 20px;list-style:none;margin:0 0 0 auto;padding:0;flex-wrap:wrap;align-items:center}
+.nav a.l{font-family:var(--f-head);font-size:22px;text-decoration:none;position:relative;padding:2px 4px}
+.nav a.l::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:10px;background:var(--yellow);opacity:0;z-index:-1;transform:skew(-8deg) scaleX(.3);transition:.25s}
+.nav a.l:hover::after{opacity:.85;transform:skew(-8deg) scaleX(1)}
+.toggle{font-family:var(--f-body);font-size:13px;background:none;color:var(--ink);border:0;padding:6px 12px;letter-spacing:.06em;text-transform:uppercase}
+.toggle b{color:var(--violet)}
+
+/* ---------- HERO ---------- */
+.hero{padding-block:clamp(24px,5vw,64px) clamp(40px,6vw,90px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);align-items:center}
+.eyebrow{font-family:var(--f-body);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:flex;gap:10px;flex-wrap:wrap}
+.eyebrow span+span::before{content:"✕";color:var(--violet);margin-right:10px}
+.name{font-family:var(--f-display);font-weight:400;font-size:clamp(64px,12.5vw,176px);line-height:.86;margin:14px 0 6px;letter-spacing:-.01em;text-wrap:balance}
+.name .ln{display:block;position:relative;width:max-content;max-width:100%}
+.name .ln2{margin-left:clamp(20px,6vw,90px);color:var(--violet)}
+.underline{display:block;width:min(560px,90%);height:34px;margin:-4px 0 6px clamp(20px,6vw,90px)}
+.underline path{stroke:var(--yellow);stroke-width:12;fill:none;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.1s .5s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pitch{font-size:clamp(17px,1.6vw,20px);max-width:34ch;margin:18px 0 26px}
+.pitch mark{background:linear-gradient(transparent 55%,var(--yellow) 55% 90%,transparent 90%);color:inherit;padding:0 2px}
+.cta-row{display:flex;gap:14px 18px;flex-wrap:wrap;align-items:center}
+.btn{font-family:var(--f-head);font-size:24px;line-height:1;padding:14px 22px 12px;background:var(--card);color:var(--ink);text-decoration:none;border:0;display:inline-flex;align-items:center;gap:10px;transition:transform .2s}
+.btn:hover{transform:rotate(-2deg) scale(1.04)}
+.btn.hot{background:var(--violet);color:#fff}
+.btn.hot::before{border-color:var(--ink)}
+.hint{font-family:var(--f-note);font-size:26px;color:var(--ink-soft);transform:rotate(-4deg)}
+
+.portrait{position:relative;justify-self:center;width:min(440px,100%);transform:rotate(3deg)}
+.portrait .ph{background:var(--card);padding:12px 12px 54px;box-shadow:0 18px 30px -16px var(--shadow)}
+.portrait img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.portrait figcaption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--f-note);font-size:30px;line-height:1}
+.tape{position:absolute;width:120px;height:34px;background:var(--tape);mix-blend-mode:multiply;z-index:2;
+  clip-path:polygon(3% 8%,10% 0,20% 10%,32% 2%,45% 9%,58% 0,70% 8%,82% 1%,94% 9%,100% 0,98% 92%,88% 100%,76% 90%,64% 100%,50% 91%,38% 100%,25% 92%,12% 100%,0 92%)}
+:root[data-theme="dark"] .tape{mix-blend-mode:normal}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tape{mix-blend-mode:normal}}
+.tape.t1{top:-14px;left:-24px;transform:rotate(-28deg)}
+.tape.t2{top:-12px;right:-26px;transform:rotate(24deg)}
+.note{position:absolute;font-family:var(--f-note);font-size:clamp(24px,2.4vw,32px);line-height:1;color:var(--violet);white-space:nowrap}
+.note svg{position:absolute;overflow:visible}
+.note.n1{right:-10px;top:-58px;transform:rotate(-5deg)}
+.note.n2{left:-40px;bottom:-46px;transform:rotate(-6deg);color:var(--ink)}
+.stamp{position:absolute;right:-78px;bottom:78px;z-index:3;font-family:var(--f-body);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);border:3px solid var(--red);border-radius:50%;width:118px;height:118px;display:grid;place-items:center;text-align:center;line-height:1.15;transform:rotate(-16deg);background:color-mix(in srgb,var(--card) 70%,transparent);filter:url(#wob)}
+@media (max-width:1320px){.stamp{right:-44px}}
+@media (max-width:1120px){.stamp{right:-26px;width:104px;height:104px;font-size:12px}}
+.stamp span{display:block;font-size:22px;font-family:var(--f-head);letter-spacing:0;text-transform:none}
+
+/* ---------- TICKER ---------- */
+.ticker{background:var(--ink);color:var(--paper);transform:rotate(-1.6deg);margin-block:10px 70px;overflow:hidden;padding-block:10px;border-block:3px solid var(--yellow)}
+.ticker .track{display:flex;gap:28px;width:max-content;animation:tick 32s linear infinite;font-family:var(--f-head);font-size:30px;white-space:nowrap}
+.ticker .track i{font-style:normal;color:var(--yellow)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- SECTION HEADS ---------- */
+.sec{padding-block:30px 80px}
+.sec-head{display:flex;align-items:flex-end;gap:12px 28px;flex-wrap:wrap;margin-bottom:34px}
+.sec-head h2{font-family:var(--f-head);font-weight:400;font-size:clamp(46px,7vw,92px);line-height:.9;margin:0;text-wrap:balance}
+.sec-head h2 em{font-style:normal;color:var(--violet)}
+.sec-head p{margin:0 0 8px;max-width:40ch;color:var(--ink-soft)}
+.sec-head .note-inline{font-family:var(--f-note);font-size:28px;color:var(--violet);transform:rotate(-3deg);margin:0 0 6px}
+
+/* ---------- WORKS ---------- */
+.works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px) clamp(20px,3vw,40px)}
+.work{all:unset;display:block;position:relative;background:var(--card);padding:12px 12px 16px;box-shadow:0 16px 26px -18px var(--shadow);transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.work:nth-child(1){--r:-2.2deg}.work:nth-child(2){--r:1.6deg;margin-top:28px}.work:nth-child(3){--r:-1deg}
+.work:nth-child(4){--r:1.8deg}.work:nth-child(5){--r:-1.6deg;margin-top:28px}.work:nth-child(6){--r:2.4deg}
+.work:hover,.work:focus-visible{transform:rotate(0deg) scale(1.035) translateY(-6px);box-shadow:0 26px 34px -18px var(--shadow)}
+.work:focus-visible{outline:3px dashed var(--violet);outline-offset:6px}
+.work .cv{display:block;aspect-ratio:4/3;width:100%;overflow:hidden;background:var(--card)}
+.work .cv svg{display:block;width:100%;height:100%}
+.work .meta{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:10px}
+.work .wt{font-family:var(--f-head);font-weight:400;font-size:32px;line-height:1;margin:0}
+.work .kind{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:right}
+.work .tp{position:absolute;top:-14px;left:50%;width:96px;height:28px;margin-left:-48px;background:var(--tape);clip-path:polygon(0 10%,8% 0,22% 12%,36% 0,50% 10%,64% 0,78% 10%,92% 0,100% 12%,96% 90%,84% 100%,70% 88%,56% 100%,42% 90%,28% 100%,14% 88%,0 100%);transform:rotate(-4deg)}
+.work .circle{position:absolute;inset:-18px -14px -12px -16px;pointer-events:none;overflow:visible}
+.work .circle path{fill:none;stroke:var(--violet);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .55s cubic-bezier(.6,0,.2,1)}
+.work .circle path{opacity:0}
+.work:hover .circle path,.work:focus-visible .circle path{stroke-dashoffset:0;opacity:1}
+.work .press{position:absolute;right:-10px;bottom:-22px;font-family:var(--f-note);font-size:26px;color:var(--violet);transform:rotate(-6deg);opacity:0;transition:opacity .25s}
+.work:hover .press{opacity:1}
+.work.gone{visibility:hidden}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.specimen{background:var(--card);padding:26px 24px 22px;box-shadow:0 16px 28px -18px var(--shadow);transform:rotate(-1.2deg)}
+.specimen .loupe{width:min(260px,70%);aspect-ratio:1;border-radius:50%;overflow:hidden;margin:0 auto 18px;position:relative;border:5px solid var(--ink);box-shadow:0 0 0 10px var(--card),0 0 0 12px var(--ink)}
+.specimen .loupe img{width:100%;height:100%;object-fit:cover;object-position:62% 56%;transform:scale(1.9);transform-origin:62% 58%}
+.specimen h3{font-family:var(--f-head);font-weight:400;font-size:38px;line-height:1;margin:0;text-align:center}
+.specimen .latin{text-align:center;font-style:italic;color:var(--ink-soft);margin:4px 0 16px}
+.specimen dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:14px}
+.specimen dt{text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);font-size:12px;padding-top:2px}
+.specimen dd{margin:0}
+.big-claim{font-family:var(--f-head);font-size:clamp(34px,4.4vw,58px);line-height:1.02;margin:0 0 18px;text-wrap:balance}
+.big-claim .hl{position:relative;white-space:nowrap}
+.big-claim .hl svg{position:absolute;left:-8%;top:-18%;width:116%;height:140%;overflow:visible;pointer-events:none}
+.big-claim .hl path{fill:none;stroke:var(--violet);stroke-width:3.5}
+.about-copy p{max-width:62ch}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px;margin-top:30px}
+.block h4{font-family:var(--f-head);font-weight:400;font-size:28px;margin:0 0 8px;display:flex;align-items:center;gap:10px}
+.block h4::after{content:"";flex:1;height:2px;background:var(--ink);opacity:.35;filter:url(#wob)}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.tl li{display:grid;grid-template-columns:14px 1fr;gap:10px;font-size:14px;line-height:1.45}
+.tl li::before{content:"";width:12px;height:12px;border:2px solid var(--ink);border-radius:50%;margin-top:4px;background:var(--paper)}
+.tl li:first-child::before{background:var(--violet)}
+.tl.plain li:first-child::before{background:var(--paper)}
+.tl b{font-weight:700}
+.tl small{display:block;color:var(--ink-soft);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:8px 10px;list-style:none;margin:0;padding:0}
+.chips li{font-size:13px;padding:4px 10px 3px;position:relative}
+.chips li::before{content:"";position:absolute;inset:0;border:1.6px solid var(--ink);border-radius:20px 14px 18px 12px;filter:url(#wob)}
+.chips li.y{background:var(--yellow);color:#16151b;border-radius:16px}
+.meter{display:grid;grid-template-columns:7.5em 1fr;gap:6px 12px;font-size:14px;align-items:center}
+.meter span{height:12px;position:relative}
+.meter span::before{content:"";position:absolute;inset:0;border:1.6px solid var(--ink);border-radius:8px;filter:url(#wob)}
+.meter span i{position:absolute;left:2px;top:2px;bottom:2px;width:var(--v);background:repeating-linear-gradient(-45deg,var(--violet) 0 3px,transparent 3px 6px);border-radius:6px}
+
+/* ---------- CV + CONTACT ---------- */
+.cv-strip{display:grid;grid-template-columns:auto 1fr auto;gap:22px 34px;align-items:center;background:var(--card);padding:28px clamp(18px,3vw,40px);box-shadow:0 16px 28px -18px var(--shadow);margin-top:20px}
+.paper-doc{width:92px;height:118px;position:relative;transform:rotate(-6deg)}
+.paper-doc svg{width:100%;height:100%;overflow:visible}
+.cv-strip h3{font-family:var(--f-head);font-weight:400;font-size:clamp(32px,4vw,48px);line-height:1;margin:0 0 6px}
+.cv-strip p{margin:0;color:var(--ink-soft);font-size:14px}
+.status{font-family:var(--f-note);font-size:24px;color:var(--violet);min-height:1em;display:block;margin-top:4px}
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:end;padding-block:80px 40px}
+.contact h2{font-family:var(--f-display);font-weight:400;font-size:clamp(52px,9vw,120px);line-height:.9;margin:0}
+.contact h2 span{color:var(--violet)}
+.lines{display:grid;gap:12px;font-size:16px}
+.line{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.line .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);width:5.5em}
+.line .v{user-select:all;font-weight:700;overflow-wrap:anywhere}
+.copy{font-family:var(--f-body);font-size:12px;background:var(--yellow);color:#16151b;border:0;padding:4px 10px;border-radius:12px 8px 12px 8px;text-transform:uppercase;letter-spacing:.06em}
+footer{padding-block:30px 60px;font-size:13px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:2px dashed var(--grid-major)}
+
+/* ---------- PROJECT VIEW ---------- */
+#project{position:fixed;inset:0;z-index:80;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;background-color:var(--paper);background-image:inherit;background-image:
+    linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),
+    linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  clip-path:circle(0px at var(--cx,50%) var(--cy,50%))}
+#project.open{clip-path:circle(150vmax at var(--cx,50%) var(--cy,50%));transition:clip-path .9s cubic-bezier(.7,0,.2,1)}
+#project.closing{clip-path:circle(0px at var(--cx,50%) var(--cy,50%));transition:clip-path .6s cubic-bezier(.7,0,.2,1)}
+.p-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:18px;flex-wrap:wrap}
+.p-hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center;padding-block:12px 32px}
+.p-hero .kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.p-hero h1{font-family:var(--f-display);font-weight:400;font-size:clamp(56px,9vw,128px);line-height:.88;margin:10px 0 18px;text-wrap:balance}
+.p-hero .lede{font-size:clamp(17px,1.5vw,20px);max-width:40ch;margin:0}
+.p-cover{background:var(--card);padding:14px;box-shadow:0 20px 34px -20px var(--shadow);transform:rotate(1.4deg);position:relative}
+.p-cover .cv{display:block;aspect-ratio:4/3}
+.p-cover svg{display:block;width:100%;height:100%}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding:18px clamp(16px,3vw,28px);margin-bottom:36px}
+.facts div{min-width:0}
+.facts dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.facts dd{margin:4px 0 0;font-family:var(--f-head);font-size:24px;line-height:1.1}
+.story{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(20px,4vw,56px);margin-bottom:40px}
+.story h2{font-family:var(--f-head);font-weight:400;font-size:clamp(38px,4.5vw,60px);line-height:.95;margin:0}
+.story p{margin:0 0 14px;max-width:62ch}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin-bottom:60px}
+.steps li{background:var(--card);padding:22px 20px 20px;position:relative;box-shadow:0 14px 24px -18px var(--shadow)}
+.steps li:nth-child(1){transform:rotate(-1.2deg)}.steps li:nth-child(2){transform:rotate(.8deg);background:color-mix(in srgb,var(--yellow) 30%,var(--card))}.steps li:nth-child(3){transform:rotate(-.6deg)}
+.steps .n{font-family:var(--f-display);font-size:58px;line-height:.8;color:var(--violet)}
+.steps h3{font-family:var(--f-head);font-weight:400;font-size:28px;margin:8px 0 6px;line-height:1}
+.steps p{margin:0;font-size:14px}
+.outcome{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:26px clamp(18px,3vw,40px);margin-bottom:36px}
+.outcome p{font-family:var(--f-head);font-size:clamp(26px,3vw,38px);line-height:1.1;margin:0;max-width:30ch}
+.next{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-block:24px 48px;border-top:2px dashed var(--grid-major);flex-wrap:wrap}
+.next .lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.next button.big{all:unset;font-family:var(--f-display);font-size:clamp(44px,7vw,96px);line-height:.9;position:relative}
+.next button.big:hover{color:var(--violet)}
+.next button.big:focus-visible{outline:3px dashed var(--violet);outline-offset:6px}
+
+
+/* ---------- CASE STUDY (real work) ---------- */
+.work .cv img{display:block;width:100%;height:100%;object-fit:cover}
+.p-cover .cv img{display:block;width:100%;height:100%;object-fit:cover}
+.cs{margin:0 0 44px}
+.cs > :last-child{margin-bottom:0}
+.cs-h{display:grid;grid-template-columns:auto minmax(0,.9fr) minmax(0,1.1fr);gap:8px 24px;align-items:end;margin-bottom:18px;padding-bottom:12px;border-bottom:2px dashed var(--grid-major)}
+.cs-n{font-family:var(--f-display);font-size:52px;line-height:.8;color:var(--violet)}
+.cs-h h2{font-family:var(--f-head);font-weight:400;font-size:clamp(36px,4.4vw,56px);line-height:.95;margin:0}
+.cs-h p{margin:0;max-width:52ch;color:var(--ink-soft);font-size:15px}
+.shot{margin:0 0 14px;background:var(--card);padding:10px 10px 12px;box-shadow:0 18px 30px -20px var(--shadow)}
+.shot img,.shot video{display:block;width:100%;height:auto;border-radius:4px;background:#0b0f1a}
+.shot figcaption{font-family:var(--f-note);font-size:24px;line-height:1;margin-top:10px;color:var(--ink-soft)}
+.duo{display:grid;grid-template-columns:.8fr 1.2fr;gap:22px;align-items:center}
+.duo .vid{transform:rotate(1deg)}
+.swatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.sw{all:unset;position:relative;background:var(--c);color:#fff;min-height:150px;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;border-radius:6px 12px 8px 10px;box-shadow:0 14px 24px -18px var(--shadow);transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.sw.lt{color:#0b0f1a}
+.sw::before{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:inherit;filter:url(#wob);pointer-events:none}
+.sw:hover{transform:translateY(-4px) rotate(-1deg)}
+.sw:focus-visible{outline:3px dashed var(--violet);outline-offset:4px}
+.sw-n{font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase}
+.sw-h{font-family:var(--f-body);font-size:14px}
+.sw-r{font-family:var(--f-body);font-size:12px;opacity:.8}
+.usage{display:flex;height:34px;margin-top:18px;border-radius:8px;overflow:hidden;position:relative}
+.usage::after{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:8px;filter:url(#wob);pointer-events:none}
+.usage span{background:var(--c);display:flex;align-items:center;justify-content:center;min-width:0}
+.usage i{font-style:normal;font-size:11px;white-space:nowrap;overflow:hidden}
+.cs-cap{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:8px 0 0}
+.ba-tabs{display:flex;align-items:center;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.ba-tabs button{font-family:var(--f-head);font-size:22px;line-height:1;padding:9px 18px 7px;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:20px 14px 18px 12px}
+.ba-tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.ba-note{font-family:var(--f-note);font-size:24px;color:var(--violet);margin-left:10px;transform:rotate(-3deg)}
+.ba-pane{min-width:0;animation:baIn .45s ease}
+@keyframes baIn{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+.ba[data-state="after"] .ba-pane[data-v="before"],.ba[data-state="before"] .ba-pane[data-v="after"]{display:none}
+.bgrid{display:grid;gap:14px}
+.bgrid.two{grid-template-columns:1fr 1fr}
+.bshot{margin:0;border-radius:10px;overflow:hidden;box-shadow:0 14px 26px -18px var(--shadow);position:relative;background:#0b0f1a}
+.bshot img{display:block;width:100%;height:auto;transition:transform .5s}
+.bshot:hover img{transform:scale(1.025)}
+@media (max-width:760px){.bgrid.two{grid-template-columns:1fr}}
+.trud-duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}
+.trud-duo .shot{margin:0;padding:0;overflow:hidden;border-radius:10px;background:#e9e9ea}
+.trud-duo .shot::before{border-radius:10px}
+.trud-duo video{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:1;border-radius:0}
+.trud-duo .shot figcaption{position:absolute;left:14px;bottom:10px;margin:0;font-family:var(--f-body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#55595e}
+.specs{margin:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;background:var(--card);border-radius:10px;position:relative;overflow:hidden}
+.specs::before{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:10px;filter:url(#wob);pointer-events:none;z-index:1}
+.specs div{padding:20px 22px;display:flex;flex-direction:column;justify-content:center;gap:6px;border-bottom:1px solid var(--grid-major)}
+.specs div:nth-child(odd){border-right:1px solid var(--grid-major)}
+.specs div:nth-last-child(-n+2){border-bottom:0}
+.specs dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet)}
+.specs dd{margin:0;font-family:'Poppins',system-ui,sans-serif;font-weight:500;font-size:16px;line-height:1.4;color:var(--ink)}
+.views{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.views figure{margin:0;background:#dbe4e5;border-radius:10px;overflow:hidden;position:relative}
+.views img{display:block;width:100%;height:auto}
+.views figcaption{position:absolute;left:10px;bottom:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#3b4547}
+.cs .swatches{margin-top:4px}
+@media (max-width:860px){.trud-duo{grid-template-columns:1fr}.views{grid-template-columns:1fr 1fr}}
+.mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.mgrid figure,.mprops figure{margin:0;border-radius:10px;overflow:hidden;position:relative;background:#dcdcdc;box-shadow:0 14px 26px -18px var(--shadow)}
+.mgrid img,.mprops img,.mprops video{display:block;width:100%;height:100%;object-fit:cover}
+.mgrid figcaption,.mprops figcaption{position:absolute;left:12px;bottom:10px;padding:4px 9px;border-radius:6px;background:rgba(15,17,24,.6);backdrop-filter:blur(4px);color:#fff;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.mprops{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mprops figure{aspect-ratio:1}
+.mprops.one-wide{grid-template-columns:1fr;max-width:640px;margin:0 auto}
+.mprops figure.dark{background:#101010}
+.mprops.tall figure{aspect-ratio:4/5}
+.art-row.three.tallr .ag{aspect-ratio:4/5}
+.specs.three{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:auto}
+.specs.three div{border-right:1px solid var(--grid-major)}
+.specs.three div:nth-child(3n){border-right:0}
+.specs.three div:nth-last-child(-n+3){border-bottom:0}
+.specs.three div:nth-child(-n+3){border-bottom:1px solid var(--grid-major)}
+@media (max-width:760px){.specs.three{grid-template-columns:1fr 1fr}}
+.specs.four{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:auto}
+.specs.four div{border-bottom:0;border-right:1px solid var(--grid-major)}
+.specs.four div:last-child{border-right:0}
+@media (max-width:860px){.specs.four{grid-template-columns:1fr 1fr}.specs.four div:nth-child(2){border-right:0}.specs.four div:nth-child(-n+2){border-bottom:1px solid var(--grid-major)}}
+@media (max-width:620px){.mgrid,.mprops{grid-template-columns:1fr}}
+.trud-duo .shot img{display:block;width:100%}
+.egg3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.egg3 figure{margin:0;border-radius:10px;overflow:hidden;position:relative;box-shadow:0 14px 26px -18px var(--shadow)}
+.egg3 img{display:block;width:100%;height:auto}
+.egg3 figcaption{position:absolute;left:12px;bottom:10px;padding:4px 9px;border-radius:6px;background:rgba(15,17,24,.6);color:#fff;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+@media (max-width:760px){.egg3{grid-template-columns:1fr}}
+.art-row{display:grid;gap:12px;margin-bottom:12px}
+.art-row.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.art-row.nut{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+.art-row.nut .big{grid-row:span 2}
+.art-row.one{grid-template-columns:1fr}
+.art-row.motion{display:flex;gap:12px}
+.art-row.motion .ag{flex:var(--ar) 1 0;min-width:0}
+.art-row.motion .ag video{height:auto;object-fit:contain}
+.ag{margin:0;border-radius:10px;overflow:hidden;background:#0c0c0c;box-shadow:0 14px 26px -18px var(--shadow)}
+.ag img,.ag video{display:block;width:100%;height:100%;object-fit:cover}
+.art-row.three .ag{aspect-ratio:1}
+.art-row.nut .ag:not(.big){aspect-ratio:4/3}
+.ag.wide{max-width:760px;width:100%;margin:0 auto}
+.ag.wide video{height:auto;object-fit:contain}
+.ig{margin-top:18px}
+#lb{position:fixed;inset:0;z-index:120;background:rgba(5,5,8,.92);display:grid;place-items:center;padding:24px}
+#lb img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+@media (max-width:760px){.art-row.motion{flex-wrap:wrap}.art-row.motion .ag{flex:1 1 40%}.art-row.three{grid-template-columns:1fr 1fr}.art-row.nut{grid-template-columns:1fr;grid-template-rows:auto}.art-row.nut .big{grid-row:auto}}
+.ranks{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;background:radial-gradient(120% 140% at 50% 0%,#14202c,#000321 70%);border-radius:10px;padding:40px 18px 30px;align-items:end}
+.ranks::before{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:10px;filter:url(#wob);pointer-events:none}
+.rank-track{position:absolute;left:10%;right:10%;top:calc(40px + 9%);height:2px;background:linear-gradient(90deg,#c9824c,#c9cdd2,#D4AF37,#8a4fe0,#3d8fe0);opacity:.35;z-index:0}
+.rank{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;min-width:0}
+.rank img{width:calc(62% + var(--i)*6%);max-width:150px;height:auto;filter:drop-shadow(0 10px 22px color-mix(in srgb,var(--g) 55%,transparent));transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.rank:hover img{transform:translateY(-8px) rotate(-6deg) scale(1.06)}
+.avatars{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,2vw,22px);background:radial-gradient(120% 140% at 50% 0%,#14202c,#000321 70%);border-radius:10px;padding:36px clamp(14px,3vw,34px) 28px}
+.avatars::before{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:10px;filter:url(#wob);pointer-events:none}
+.av{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;min-width:0}
+.av img{width:100%;max-width:166px;aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 3px #1d3a5c,0 14px 28px -10px rgba(40,140,255,.45);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.av:nth-child(odd) img{transform:translateY(-6px)}
+.av:hover img{transform:translateY(-12px) rotate(-4deg) scale(1.05)}
+.av b{font-family:'Poppins',system-ui,sans-serif;font-weight:700;font-size:15px;color:#7fc4ff;margin-top:12px}
+.av span{font-family:var(--f-body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7f93a8}
+.avatars.anu{grid-template-columns:repeat(6,minmax(0,1fr));background:radial-gradient(120% 140% at 50% 0%,#2a0d22,#08040a 70%)}
+.avatars.anu .av img{box-shadow:0 0 0 3px color-mix(in srgb,var(--g) 45%,#111),0 14px 28px -10px color-mix(in srgb,var(--g) 60%,transparent)}
+.avatars.anu .av b{color:var(--g);font-family:'Karantina','Anton',sans-serif;font-size:24px;font-weight:700;letter-spacing:.04em;line-height:1}
+@media (max-width:620px){.avatars{display:flex;flex-wrap:wrap;justify-content:center}.av{width:30%}.av:nth-child(odd) img{transform:none}}
+.rank b{font-family:'Poppins',system-ui,sans-serif;font-weight:700;font-size:16px;color:var(--g);margin-top:10px;letter-spacing:.02em}
+.rank span{font-family:var(--f-body);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7f93a8}
+@media (max-width:620px){.ranks{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:26px}.rank-track{display:none}}
+.icon-board{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}
+.ib-set{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;background:#061206;border-radius:10px;padding:28px 22px;position:relative;align-items:end;align-content:center}
+.ib-set::before,.ib-willy::before{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:10px;filter:url(#wob);pointer-events:none}
+.ib-hero{grid-column:1/-1;display:flex;align-items:center;gap:22px;padding-bottom:22px;margin-bottom:6px;border-bottom:1px solid #1f3a18}
+.ib-hero img{height:120px;width:auto;max-width:none;filter:drop-shadow(0 10px 24px rgba(59,217,16,.35))}
+.ib-hero div{display:flex;flex-direction:column;gap:4px}
+.ib-hero .ib-l{font-size:22px}
+.ib-item{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;min-width:0}
+.ib-app,.ib-social{width:min(130px,100%);aspect-ratio:1;flex:none;display:grid;place-items:center;margin-bottom:12px;background:radial-gradient(120% 120% at 30% 15%,#1c4a12,#0a1f07 70%);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 14px 28px -10px rgba(59,217,16,.45)}
+.ib-app{border-radius:23%}
+.ib-social{border-radius:50%;outline:3px solid #3BD910;outline-offset:4px}
+.ib-app img,.ib-social img{width:40%;height:auto;max-width:none;display:block;filter:drop-shadow(0 3px 6px rgba(0,0,0,.45))}
+.ib-fav{width:100%;display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:12px}
+.ib-tab{display:flex;align-items:center;gap:7px;background:#1d2a1b;color:#cfe8c6;border-radius:8px 8px 0 0;padding:7px 12px;font:12px/1 system-ui,sans-serif;max-width:100%}
+.ib-tab i{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ib-sizes{display:flex;align-items:flex-end;gap:12px}
+.ib-sizes img{width:auto;max-width:none;display:block}
+.ib-l{font-family:'Poppins',system-ui,sans-serif;font-weight:600;font-size:15px;color:#f2fbe9;letter-spacing:.01em}
+.ib-s{font-family:var(--f-body);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7fa874}
+.ib-willy{margin:0;position:relative;border-radius:10px;overflow:hidden;background:#050c04}
+.ib-willy img{display:block;width:100%;height:100%;object-fit:cover;object-position:30% 30%}
+.ib-willy figcaption{position:absolute;left:14px;bottom:12px;font-family:var(--f-note);font-size:26px;color:#d8c4ff;transform:rotate(-3deg)}
+@media (max-width:860px){.icon-board{grid-template-columns:1fr}.ib-willy{max-height:420px}}
+@media (max-width:520px){.ib-set{grid-template-columns:1fr 1fr}.ib-item:last-child{grid-column:1/-1}}
+.duo.even{grid-template-columns:1fr 1fr;align-items:start}
+.duo.even .shot{transform:none}
+.pull{margin:0 0 26px;padding:28px clamp(18px,4vw,48px);background:#111010;color:#f3e9ef;border-radius:8px;position:relative;overflow:hidden}
+.pull::before{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:8px;filter:url(#wob);pointer-events:none}
+.pull::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;background:radial-gradient(#940666,transparent 65%);opacity:.55}
+.pull.green{background:#061206}
+.pull.green::after{background:radial-gradient(#3BD910,transparent 65%)}
+.pull.green p{font-family:Impact,'Anton',sans-serif;color:#9BF07A;font-style:italic}
+.pull p{font-family:'Karantina','Anton',sans-serif;font-size:clamp(30px,4.2vw,56px);line-height:1;margin:0;max-width:22ch;position:relative;text-wrap:balance}
+.pull cite{display:block;margin-top:14px;font-family:var(--f-body);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#c98aae;position:relative}
+.type-shot .fix{position:relative}
+.type-shot .fix svg{position:absolute;inset:0;width:100%;height:100%}
+.type-spec{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ts{background:#0e1116;color:#e9f6f7;padding:24px 24px 22px;border-radius:8px;display:flex;flex-direction:column;gap:6px;min-width:0;overflow:hidden;position:relative}
+.ts::before{content:"";position:absolute;inset:0;border:2px solid var(--ink);border-radius:8px;filter:url(#wob);pointer-events:none}
+.ts-l{font-family:var(--f-body);font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.ts-name{font-size:40px;line-height:1;color:#84E1E6}
+.ts-big{font-size:clamp(90px,12vw,170px);line-height:.85;color:#2f4c4f}
+.ts-a .ts-name,.ts-a .ts-big,.ts-a .ts-sample{font-family:Impact,'Anton','Haettenschweiler','Arial Narrow Bold',sans-serif}
+.ts-b .ts-name,.ts-b .ts-big,.ts-b .ts-w{font-family:'Poppins',system-ui,sans-serif}
+.ts-b .ts-name{font-weight:300}
+.ts-sample{font-size:28px;color:#fff;letter-spacing:.01em}
+.ts-w{display:flex;flex-wrap:wrap;gap:4px 16px;color:#84E1E6;font-size:16px}
+.ts-w i{font-style:normal}
+@media (max-width:860px){.duo.even{grid-template-columns:1fr}.cs-h{grid-template-columns:auto 1fr}.cs-h p{grid-column:1/-1}.duo,.type-spec{grid-template-columns:1fr}.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- FX ---------- */
+#fx{position:fixed;inset:0;z-index:90;pointer-events:none;width:100vw;height:100vh}
+#chick{position:fixed;left:0;top:0;z-index:100;pointer-events:none;width:27px;height:auto;will-change:transform;display:none;filter:drop-shadow(2px 4px 0 rgba(0,0,0,.18))}
+html.chick-on #chick{display:block}
+.pop{position:fixed;z-index:95;pointer-events:none;font-family:var(--f-note);font-size:30px;color:var(--violet);font-weight:700;animation:pop .8s ease-out forwards;white-space:nowrap}
+@keyframes pop{0%{opacity:0;transform:translate(-50%,-30%) scale(.4) rotate(var(--rr))}20%{opacity:1;transform:translate(-50%,-90%) scale(1.15) rotate(var(--rr))}100%{opacity:0;transform:translate(-50%,-170%) scale(1) rotate(var(--rr))}}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- RESPONSIVE ---------- */
+@media (min-width:961px){
+  .works{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .works .work{grid-column:span 2}
+  .works .work:last-child:nth-child(3n+1){grid-column:3 / span 2}
+  .works .work:nth-last-child(2):nth-child(3n+1){grid-column:2 / span 2}
+}
+@media (max-width:960px){
+  .works{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .work:nth-child(n){margin-top:0}
+  .about-grid,.p-hero,.story,.contact{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  .portrait{width:min(360px,86%);margin-top:40px}
+  .note.n2{left:-10px;bottom:-48px}
+  .cv-strip{grid-template-columns:1fr;justify-items:start}
+  .cols{grid-template-columns:1fr}
+  .outcome{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .works{grid-template-columns:1fr}
+  .nav ul{margin-left:0;width:100%;justify-content:space-between}
+  .stamp{width:96px;height:96px;font-size:11px;right:-22px;bottom:100px}
+  .stamp span{font-size:18px}
+  .note.n1{right:0;top:-48px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .ticker .track{animation:none}
+}
+</style>
+
+<!-- global wobble filter for hand-drawn edges -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="wob"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+</svg>
+
+<img id="chick" src="chicken.png" alt="">
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Alex Yandyan, home">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" filter="url(#wob)"><path d="M6 36 L16 8 L26 36 M10 26 H22"/><path d="M24 8 L31 21 L38 8 M31 21 V37"/><path d="M4 40 Q22 44 40 39" stroke="var(--violet)"/></g></svg>
+      <span>alex y.</span>
+    </a>
+    <ul>
+      <li><a class="l" href="#works">works</a></li>
+      <li><a class="l" href="#about">about</a></li>
+      <li><a class="l" href="#cv">cv</a></li>
+      <li><a class="l" href="#contact">say hi</a></li>
+      <li><button class="toggle sk" id="soundBtn" aria-pressed="true">sound: <b>on</b></button></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow"><span>Design generalist</span><span>Yerevan, AM</span><span>Open to remote</span></div>
+        <h1 class="name"><span class="ln">Alex</span><span class="ln ln2">Yandyan</span></h1>
+        <svg class="underline" viewBox="0 0 560 34" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M6 22 C120 8 220 30 330 16 S500 10 552 20"/></svg>
+        <p class="pitch">I draw it, model it, animate it and ship it. Graphic &amp; product design, <mark>3D</mark>, motion, branding and ads that people actually click.</p>
+        <div class="cta-row">
+          <a class="btn hot sk" href="#works">see the works ↓</a>
+          <span class="hint">psst… click anything. the chicken likes it.</span>
+        </div>
+      </div>
+      <figure class="portrait">
+        <span class="tape t1"></span><span class="tape t2"></span>
+        <div class="ph"><img src="alex.jpg" alt="Collage portrait of Alex: sunglasses pushed up with violet X marks, a monocle, rosy cheeks and a moustache"></div>
+        <figcaption>me, in my natural habitat</figcaption>
+        <div class="stamp" aria-hidden="true"><div>certified<span>Designer</span>est. 2021</div></div>
+        <div class="note n1">4+ yrs of making things pop
+          <svg width="60" height="60" style="left:40%;top:30px" aria-hidden="true"><path d="M5 2 C 20 20 22 34 30 52 M22 44 L30 54 L36 42" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        </div>
+        <div class="note n2">monocle = detail-oriented ↗</div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
+
+  <!-- WORKS -->
+  <section class="sec" id="works">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Selected <em>works</em></h2>
+        <p>Branding, 3D, product, thumbnails, jewelry and motion. Pick one and it blows up into the full story.</p>
+        <span class="note-inline">careful, they're fragile ✸</span>
+      </div>
+      <div class="works" id="worksGrid"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="sec-head"><h2>About the <em>specimen</em></h2></div>
+      <div class="about-grid">
+        <aside class="specimen sk">
+          <div class="loupe"><img src="alex.jpg" alt="Close-up of Alex's monocle eye"></div>
+          <h3>Alex Yandyan</h3>
+          <p class="latin">Designus generalis</p>
+          <dl>
+            <dt>Habitat</dt><dd>Yerevan, Armenia. Migrates remotely.</dd>
+            <dt>Diet</dt><dd>Figma frames, Blender renders, AI pipelines, strong coffee</dd>
+            <dt>Call</dt><dd>A rubber-chicken squawk when a layout clicks</dd>
+            <dt>Studying</dt><dd>Product Design, NUACA (2023 – 2027)</dd>
+            <dt>Status</dt><dd><b style="color:var(--violet)">Thriving. Open to work.</b></dd>
+          </dl>
+        </aside>
+        <div class="about-copy">
+          <p class="big-claim">Short version: I <span class="hl">make things<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M30 8 C-10 14 0 54 100 54 C190 54 206 14 150 6 C110 0 60 4 40 12"/></svg></span>. Long version below.</p>
+          <p>I'm a design generalist with 4+ years across graphic and product design, 3D, motion, branding and digital advertising. I care about visuals that perform: banners people click, thumbnails people stop on, renders that sell the product before it exists.</p>
+          <p>Right now I lead design production and visual direction across iGaming projects at Playtronix, building logos, banners, animations and 3D visuals, and wiring AI into the workflow so ideas get explored faster and shipped sharper. Before that: 3D for print and product viz on Upwork, casino assets at Arct X, and two years of thumbnails and banners at Nomi Labs.</p>
+          <p>AI is part of my everyday professional toolkit, used like any other tool in the pipeline: image and video generation for fast concept exploration, AI-assisted 3D, upscaling and clean-up, and repeatable workflows that take a brief from moodboard to production-ready assets. The ideas, art direction and final polish stay mine; AI just gets me to more options, faster.</p>
+          <div class="cols">
+            <div class="block">
+              <h4>Where I've been</h4>
+              <ul class="tl">
+                <li><div><b>Designer · Playtronix</b><small>Jul 2025 – present</small>Visual direction and production for iGaming brands.</div></li>
+                <li><div><b>3D Designer · Upwork</b><small>Oct 2024 – Mar 2025</small>3D printing models, product renders, concept to final.</div></li>
+                <li><div><b>3D Designer · Arct X Solution</b><small>Apr – Jun 2024</small>Stylized assets and promo graphics for casino platforms.</div></li>
+                <li><div><b>Graphic Designer · Nomi Labs</b><small>Jul 2021 – Mar 2023</small>Thumbnails, banners and branded campaign visuals.</div></li>
+                <li><div><b>Side projects · Freelance</b><br>YouTube thumbnails, banners and animated visuals for creators; personal 3D art and product concepts.</div></li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>What I'm good at</h4>
+              <ul class="chips" style="margin-bottom:18px">
+                <li class="y">Art direction</li><li>Graphic design</li><li class="y">3D design</li><li>UI design</li><li>Product design</li><li>Industrial design</li><li class="y">Motion</li><li>Creative design</li><li class="y">AI tools &amp; workflows</li>
+              </ul>
+              <h4>Languages</h4>
+              <div class="meter">
+                <b>Armenian</b><span><i style="--v:calc(100% - 4px)"></i></span>
+                <b>Russian</b><span><i style="--v:92%"></i></span>
+                <b>English</b><span><i style="--v:72%"></i></span>
+              </div>
+              <h4 style="margin-top:18px">Paperwork</h4>
+              <ul class="tl plain">
+                <li><div><b>Autodesk User Certification</b><small>2026</small></div></li>
+                <li><div><b>TUMO Studios · Jewelry Making</b><small>2025</small></div></li>
+                <li><div><b>Adobe User Group AM</b><small>2023</small></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CV -->
+      <div class="cv-strip sk" id="cv">
+        <div class="paper-doc" aria-hidden="true">
+          <svg viewBox="0 0 92 118"><g fill="var(--card)" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" filter="url(#wob)"><path d="M6 4 H66 L86 24 V114 H6 Z"/><path d="M66 4 V24 H86" fill="none"/><g fill="none" stroke-width="2"><path d="M18 40 H70 M18 52 H62 M18 64 H72 M18 76 H54 M18 88 H66"/></g><path d="M14 98 C30 92 44 104 74 96" stroke="var(--violet)" stroke-width="3" fill="none"/></g></svg>
+        </div>
+        <div>
+          <h3>Take the CV with you</h3>
+          <p>One page, PDF. Experience, tools (Figma, Photoshop, Illustrator, Blender, Substance Painter, 3ds Max, After Effects…), education.</p>
+          <span class="status" id="cvStatus" role="status"></span>
+        </div>
+        <a class="btn hot sk" id="cvBtn" href="Alex_Yandyan_CV.pdf" target="_blank" rel="noopener">download CV ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact">
+      <h2>Let's make<br>something <span>squeak.</span></h2>
+      <div class="lines">
+        <div class="line"><span class="k">Email</span><span class="v" id="email">alexyandyan@gmail.com</span><button class="copy" data-copy="email">copy</button></div>
+        <div class="line"><span class="k">Phone</span><span class="v" id="phone">+374 98 70 11 55</span><button class="copy" data-copy="phone">copy</button></div>
+        <div class="line"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/alexyandyan/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">in/alexyandyan</a><a class="copy" href="https://www.linkedin.com/in/alexyandyan/" target="_blank" rel="noopener" style="text-decoration:none">open ↗</a></div>
+        <div class="line"><span class="k">Based</span><span>Yerevan, Armenia · GMT+4</span></div>
+      </div>
+    </div>
+    <div class="wrap"><footer><span>© 2026 Alex Yandyan. Drawn by hand, mostly.</span><span>No rubber chickens were harmed. Several were squeezed.</span></footer></div>
+  </section>
+</main>
+
+<!-- PROJECT VIEW -->
+<article id="project" hidden aria-modal="true" role="dialog" aria-labelledby="pTitle"></article>
+
+<script>
+(() => {
+"use strict";
+const $ = (s, r = document) => r.querySelector(s);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = matchMedia("(pointer: fine)").matches;
+
+/* ============ PALETTE (read from tokens so covers follow the theme) ============ */
+function pal() {
+  const cs = getComputedStyle(document.documentElement);
+  const g = n => cs.getPropertyValue(n).trim();
+  return { ink: g("--ink"), card: g("--card"), violet: g("--violet"), yellow: g("--yellow"), red: g("--red"), soft: g("--ink-soft") };
+}
+
+/* ============ COVERS: hand-drawn SVG sketches ============ */
+let uid = 0;
+function frame(C, seed, body) {
+  const u = "c" + (uid++);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" aria-hidden="true">
+  <defs>
+    <filter id="r${u}" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="${seed}"/><feDisplacementMap in="SourceGraphic" scale="3.4"/></filter>
+    <pattern id="h${u}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="${C.ink}" stroke-width="1.1" opacity=".55"/></pattern>
+  </defs>
+  <rect width="400" height="300" fill="${C.card}"/>
+  <g filter="url(#r${u})" fill="none" stroke="${C.ink}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${body(`url(#h${u})`)}</g>
+</svg>`;
+}
+const faint = C => `stroke="${C.soft}" stroke-width="1" stroke-dasharray="4 5" opacity=".7"`;
+const COVERS = [
+  // 0 Crown & Bolt: iGaming emblem
+  (C) => frame(C, 2, H => `
+    <path d="M30 150 H370 M200 14 V286" ${faint(C)}/><circle cx="200" cy="150" r="120" ${faint(C)}/>
+    <circle cx="206" cy="155" r="86" fill="${C.violet}" fill-opacity=".28" stroke="none"/>
+    <circle cx="200" cy="150" r="94"/><circle cx="200" cy="150" r="81"/>
+    <path d="M140 128 L148 90 L172 114 L200 78 L228 114 L252 90 L260 128 Z" fill="${C.yellow}"/>
+    <rect x="140" y="128" width="120" height="15" fill="${H}"/>
+    <circle cx="148" cy="88" r="5" fill="${C.ink}"/><circle cx="200" cy="76" r="5" fill="${C.ink}"/><circle cx="252" cy="88" r="5" fill="${C.ink}"/>
+    <path d="M210 152 L180 198 L200 198 L188 236 L230 180 L208 180 L222 152 Z" fill="${C.violet}"/>
+    <circle cx="70" cy="78" r="28" fill="${H}" stroke="none"/><circle cx="64" cy="72" r="24" fill="${C.card}"/><circle cx="64" cy="72" r="16"/><path d="M64 62 V82 M58 66 H68 M58 78 H70"/>
+    <ellipse cx="330" cy="222" rx="28" ry="11" fill="${C.yellow}"/><path d="M302 222 V232 Q330 248 358 232 V222"/>
+    <path d="M330 52 L336 68 L352 70 L340 80 L344 96 L330 88 L316 96 L320 80 L308 70 L324 68 Z" fill="${C.yellow}"/>
+    <path d="M60 230 l10 10 M70 230 l-10 10 M90 254 l8 8 M98 254 l-8 8 M300 120 q14 -6 22 4"/>`),
+  // 1 Ribbed lamp: product viz
+  (C) => frame(C, 5, H => `
+    <polygon points="214,128 310,132 372,292 168,292" fill="${C.yellow}" fill-opacity=".45" stroke="none"/>
+    <ellipse cx="150" cy="252" rx="62" ry="14" fill="${H}"/><ellipse cx="150" cy="248" rx="62" ry="14" fill="${C.card}"/>
+    <path d="M144 248 V152 M156 248 V156"/><path d="M146 148 L226 98 M154 160 L232 108"/>
+    <circle cx="150" cy="154" r="9" fill="${C.card}"/><circle cx="229" cy="102" r="8" fill="${C.card}"/>
+    <path d="M214 82 Q250 38 292 74 L312 130 Q262 152 212 128 Z" fill="${C.card}"/>
+    <path d="M228 70 Q222 100 226 134 M246 60 Q244 100 246 141 M263 62 Q268 100 268 143 M279 67 Q290 100 291 138" stroke="${C.violet}" stroke-width="2.6"/>
+    <path d="M56 70 V252 M48 70 H64 M48 252 H64 M52 80 L56 70 L60 80 M52 242 L56 252 L60 242"/>
+    <circle cx="346" cy="58" r="30" fill="${C.violet}" fill-opacity=".3"/><circle cx="346" cy="58" r="12"/>
+    <path d="M346 28 V46 M346 70 V88 M316 58 H334 M358 58 H376 M325 37 L337 49 M355 67 L367 79 M367 37 L355 49 M337 67 L325 79" stroke-width="1.6"/>
+    <path d="M300 20 Q330 6 360 18" ${faint(C)}/>`),
+  // 2 Click Magnet: thumbnails
+  (C) => frame(C, 8, H => `
+    <rect x="22" y="34" width="224" height="138" fill="${C.card}"/>
+    <path d="M97 34 V172 M171 34 V172 M22 80 H246 M22 126 H246" ${faint(C)}/>
+    <path d="M90 52 L100 72 L120 58 L118 82 L142 82 L124 98 L142 116 L116 116 L118 140 L98 124 L86 146 L80 120 L56 128 L66 106 L46 94 L70 88 L62 64 L84 76 Z" fill="${C.yellow}"/>
+    <circle cx="96" cy="100" r="30" fill="${C.card}"/><path d="M70 86 Q80 64 104 70 Q124 72 124 92"/>
+    <circle cx="86" cy="96" r="4" fill="${C.ink}"/><circle cx="106" cy="96" r="4" fill="${C.ink}"/>
+    <ellipse cx="96" cy="114" rx="8" ry="11" fill="${C.red}"/>
+    <rect x="150" y="48" width="84" height="30" fill="${C.violet}" fill-opacity=".85"/>
+    <path d="M154 158 Q190 160 200 128 M188 136 L200 126 L206 142" stroke="${C.violet}" stroke-width="4"/>
+    <rect x="264" y="34" width="114" height="64"/><circle cx="296" cy="66" r="14" fill="${H}"/><path d="M322 56 H366 M322 68 H356" stroke-width="4"/>
+    <rect x="264" y="108" width="114" height="64" fill="${C.violet}" fill-opacity=".18"/><path d="M280 160 L310 124 L330 146 L346 132 L366 160 Z" fill="${C.yellow}"/>
+    <rect x="22" y="190" width="108" height="72"/><circle cx="56" cy="226" r="16"/><path d="M84 214 L120 238 M110 236 L120 238 L116 228"/>
+    <rect x="146" y="190" width="108" height="72" fill="${H}"/><rect x="160" y="204" width="56" height="22" fill="${C.card}"/>
+    <rect x="270" y="190" width="108" height="72"/><path d="M300 248 Q324 196 350 248" fill="${C.yellow}"/><circle cx="324" cy="216" r="6" fill="${C.red}"/>`),
+  // 3 Loot Box: casino 3D assets
+  (C) => frame(C, 11, H => `
+    <path d="M30 262 H372" ${faint(C)}/>
+    <path d="M120 162 L104 96 Q190 70 270 96 L282 162" fill="${C.card}"/>
+    <ellipse cx="170" cy="154" rx="20" ry="8" fill="${C.yellow}"/><ellipse cx="204" cy="146" rx="20" ry="8" fill="${C.yellow}"/><ellipse cx="236" cy="156" rx="20" ry="8" fill="${C.yellow}"/>
+    <ellipse cx="188" cy="132" rx="18" ry="7" fill="${C.yellow}"/><ellipse cx="220" cy="128" rx="18" ry="7" fill="${C.yellow}"/>
+    <rect x="118" y="160" width="166" height="94" fill="${H}"/>
+    <path d="M160 160 V254 M242 160 V254" stroke-width="3"/>
+    <rect x="188" y="176" width="26" height="32" fill="${C.yellow}"/><circle cx="201" cy="190" r="4" fill="${C.ink}"/>
+    <circle cx="80" cy="70" r="16" fill="${C.yellow}"/><path d="M80 62 V78"/><circle cx="330" cy="58" r="13" fill="${C.yellow}"/>
+    <path d="M70 40 l-8 -10 M92 42 l8 -10 M336 34 l6 -10"/>
+    <path d="M300 150 L360 150 L376 172 L330 228 L284 172 Z" fill="${C.violet}" fill-opacity=".6"/>
+    <path d="M284 172 H376 M300 150 L314 172 L330 228 M360 150 L346 172 L330 228 M314 172 L330 150 L346 172" stroke-width="1.6"/>
+    <path d="M30 180 L64 168 L84 196 L54 214 Z M30 180 L54 214 M64 168 L54 214" stroke-width="1.4"/>`),
+  // 4 Twist Ring: jewelry
+  (C) => frame(C, 14, H => `
+    <rect x="58" y="262" width="168" height="14" fill="${C.yellow}" fill-opacity=".7" stroke="none" transform="rotate(-1 140 268)"/>
+    <path d="M58 168 a82 82 0 1 0 164 0 a82 82 0 1 0 -164 0 M78 168 a62 62 0 1 0 124 0 a62 62 0 1 0 -124 0" fill="${H}" fill-rule="evenodd"/>
+    <circle cx="140" cy="168" r="82"/><circle cx="140" cy="168" r="62"/>
+    <path d="M110 92 L170 92 L184 70 L156 52 L124 52 L96 70 Z" fill="${C.violet}" fill-opacity=".7"/>
+    <path d="M96 70 H184 M124 52 L118 70 L140 92 L162 70 L156 52 M118 70 L110 92 M162 70 L170 92" stroke-width="1.5"/>
+    <path d="M60 270 H222 M60 262 V278 M222 262 V278"/>
+    <ellipse cx="312" cy="160" rx="52" ry="66"/><ellipse cx="312" cy="160" rx="38" ry="52" fill="${C.card}"/>
+    <path d="M264 128 C290 150 290 172 266 196 M360 128 C334 150 334 172 358 196 M282 102 C300 116 320 108 336 100 M282 218 C300 206 320 214 340 220" stroke="${C.violet}" stroke-width="2.6"/>
+    <path d="M250 60 Q312 30 370 60" ${faint(C)}/><path d="M312 74 V246" ${faint(C)}/>`),
+  // 5 Squeak: motion storyboard
+  (C) => frame(C, 17, H => {
+    const P = [[20,30],[146,30],[272,30],[20,165],[146,165],[272,165]];
+    const B = [
+      `<ellipse cx="60" cy="58" rx="16" ry="16" fill="${C.yellow}"/>`,
+      `<ellipse cx="200" cy="90" rx="12" ry="20" fill="${C.yellow}"/><path d="M200 50 V64 M192 54 V66 M208 54 V66" stroke-width="1.4"/>`,
+      `<ellipse cx="326" cy="124" rx="24" ry="9" fill="${C.yellow}"/><path d="M296 112 l-8 -6 M356 112 l8 -6"/>`,
+      `<ellipse cx="74" cy="214" rx="12" ry="22" fill="${C.yellow}"/><path d="M74 248 V262" stroke-width="1.4"/>`,
+      `<ellipse cx="200" cy="208" rx="17" ry="17" fill="${C.yellow}"/><path d="M174 196 a28 28 0 0 1 52 0 M226 222 a28 28 0 0 1 -52 0" stroke="${C.violet}" stroke-width="2.6"/>`,
+      `<ellipse cx="326" cy="246" rx="17" ry="14" fill="${C.yellow}"/><path d="M350 186 l4 10 l10 2 l-8 6 l2 10 l-8 -6 l-8 6 l2 -10 l-8 -6 l10 -2 Z" fill="${C.violet}"/>`
+    ];
+    let s = "";
+    P.forEach(([x,y],i)=>{ s += `<rect x="${x}" y="${y}" width="108" height="105" fill="${C.card}"/><path d="M${x+8} ${y+92} H${x+100}" stroke-width="1.6"/><circle cx="${x+98}" cy="${y+10}" r="2.5" fill="${C.ink}"/>`; for(let k=0;k<=i;k++) s += `<path d="M${x+8+k*6} ${y+10} v4" stroke-width="1.4"/>`; s += B[i]; s += `<path d="M${x+8} ${y+92} H${x+100}" stroke="none"/>`; });
+    s += `<path d="M44 46 Q120 -10 200 72 Q260 140 330 120" stroke="${C.violet}" stroke-width="1.6" stroke-dasharray="5 6"/>`;
+    s += `<path d="M152 6 C 175 6 180 22 200 22 S 230 8 250 8" ${faint(C)}/>`;
+    return s;
+  })
+];
+
+/* ============ PROJECT DATA ============ */
+const PROJECTS = [
+  { slug:"bettcat", title:"BettCat", kind:"Brand identity & UI", field:"Crypto casino", year:"2025", role:"Brand & UI designer", tools:"Illustrator, Photoshop, Figma, After Effects",
+    img:"work/bettcat/logo_card.webp", hero:"work/bettcat/logo.webp", body:"bettcat",
+    lede:"Brand identity and casino interface for a crypto gambling platform, fronted by a sly cat in a fedora who already knows how this hand ends.",
+    brief:["BettCat lives in the fast world of crypto, where speed, freedom and control matter most: instant transactions, provably fair games, no banks and no borders.","The brand needed a character rather than another coin icon. The cat stands for the player BettCat is built for: someone who moves smart, calculates the risk and strikes at the right moment. From there the system grew into a logo and mascot, a palette and type pairing, promo banners with motion, and the full casino lobby for desktop and mobile."],
+    steps:[],
+    outcome:"One cat, one palette, two typefaces: a crypto casino brand that runs from favicon to full lobby." },
+  { slug:"anubet", title:"Anubet", kind:"Brand identity & UI", field:"Crypto casino", year:"2025", role:"Brand & UI designer", tools:"Illustrator, Photoshop, Figma, AI-assisted 3D",
+    img:"work/anubet/card.webp", hero:"work/anubet/hero.webp", body:"anubet",
+    lede:"A crypto casino ruled by a jackal god: obsidian metal, magenta light, and a logomark where the letter A turns into Anubis.",
+    brief:["Anubet reimagines Anubis, the ancient guardian of souls, as the keeper of fairness in a crypto casino. Every roll, spin and wager is written to the blockchain, so the brand had to feel ancient and futuristic at once: obsidian armour for the unbreakable code, glowing magenta for the pulse of risk.","The system covers the logomark and wordmark, palette and type, a mascot with his own lore, 3D game icons, key art, promo banners and the full casino lobby."],
+    steps:[],
+    outcome:"A dark, mythic brand with one rule: everything is stone and metal until it glows magenta." },
+  { slug:"bet502", title:"BET502", kind:"Brand identity & mascot", field:"Casino & sportsbook", year:"2025", role:"Brand designer", tools:"Illustrator, Photoshop, Figma, AI-assisted 3D",
+    img:"work/bet502/card.webp", hero:"work/bet502/logo.webp", body:"bet502",
+    lede:"A rebrand for a casino and sportsbook built on luck: a hand-lettered clover wordmark, a street-style doodle kit and Lucky Willy, a four-leaf clover who swings a baseball bat at bad luck.",
+    brief:["BET502 needed to feel lucky, loud and a little cheeky, without looking like every other gold-and-black casino. The answer was green, graffiti-inspired lettering and a character people want to see again.","The B grows a four-leaf clover, the 5 and 0 lock together, and a single swash wraps the whole word. Around it: Lucky Willy and his backstory, a warm accent palette, app and social icons, a hand-drawn doodle set and a family of promo banners."],
+    steps:[],
+    outcome:"One clover, one swing: a brand that turns luck into a character and every promo into a scene." },
+  { slug:"banners-2025", title:"Banners 2025", kind:"Promo banners & thumbnails", field:"iGaming", year:"2025", role:"Designer", tools:"Photoshop, Figma, After Effects, AI-assisted 3D",
+    img:"work/banners/card.webp", hero:"work/banners/hero.webp", body:"banners",
+    lede:"A year of promo design for two crypto casinos: a full rebrand of BitFortune's banners and game thumbnails, plus a pixel-art campaign for Kazabet.",
+    brief:["Banners are the most-seen pieces of any casino brand. They change every week, sit next to dozens of competitors and have about a second to land.","For BitFortune I took a cheerful candy-land style and pushed it into something sharper: a dark cinematic world, one confident panda, bold yellow-and-white type and a fixed layout system that the team can reuse for every new offer. The in-house Originals games got the same treatment. For Kazabet I built a retro pixel-art series around a raccoon in shades."],
+    steps:[],
+    outcome:"Two brands, one rule: one character, one message, readable at thumbnail size." },
+  { slug:"trud-echo", title:"TRUD Echo", kind:"Product design", field:"Audio · concept", year:"2025", role:"Industrial designer, 3D", tools:"Blender, Substance Painter, After Effects",
+    img:"work/trud/card.webp", hero:"work/trud/hero.webp", body:"trud",
+    lede:"Minimal sound, maximum presence. A sleek, industrially inspired headphone concept that makes sound not just heard, but seen.",
+    brief:["TRUD Echo is a headphone for modern creators and listeners who care about clarity in both form and sound. The aim was a product that reads as bold from across the room yet disappears on the head.","The answer is a dual-rail headband, a light but confident frame and compact circular earcups. A spun-metal cap with concentric grooves nods to vinyl and analog audio, while L and R are marked quietly in the surface finish."],
+    steps:[],
+    outcome:"Clarity, simplicity and bold design in one object: an everyday headphone that looks as considered as it sounds." },
+  { slug:"egg-cam", title:"Egg Cam", kind:"Product & UX design", field:"Consumer tech · concept", year:"2024", role:"Industrial designer, 3D, UX", tools:"Blender, Figma, After Effects",
+    img:"work/egg/card.webp", hero:"work/egg/ui.webp", body:"egg",
+    lede:"A fisheye camera inspired by the shape of an egg, built for circular fisheye and normal shots, in photo and video.",
+    brief:["Egg Cam is a compact camera for content creators who want the fun of a 185° fisheye without carrying a lens kit. One body switches between full fisheye and standard framing.","I designed the product form, the 3D visuals and animation, and the on-device interface. The egg idea runs through everything: the soft-cornered body, the cracked-shell packaging that hatches the camera, and the warm orange palette."],
+    steps:[],
+    outcome:"Industrial design, UX and packaging telling one story: a creative tool that hatches out of its box." },
+  { slug:"game-ready-models", title:"Game-Ready Models", kind:"3D game assets", field:"Props · environment", year:"2024 – 25", role:"3D artist", tools:"Blender, Substance Painter",
+    img:"work/models/card.webp", hero:"work/models/arcade.webp", body:"models",
+    lede:"A set of real-time 3D props built to drop straight into a game engine: a retro arcade cabinet, a weathered gas cylinder and a battle-worn shield.",
+    brief:["Game-ready means more than good-looking. Every asset has to hold up close, stay light on polygons and use clean PBR textures that react correctly to any lighting setup.","Each prop tells a small story through its surfaces: chipped paint and grime on the cabinet edges, rust bleeding through the cylinder, scratches and stains across the shield. Wear is placed where hands, boots and weather would actually touch."],
+    steps:[],
+    outcome:"Production-ready props with believable wear, built light enough for real-time and detailed enough for close-ups." },
+  { slug:"bauhaus-pendant", title:"Bauhaus Pendant", kind:"Jewelry design", field:"TUMO Studios · technical course", year:"", role:"Designer & maker", tools:"3D modelling & rendering, studio metalwork",
+    img:"work/jewel/card.webp", hero:"work/jewel/hero.webp", heroWide:true, body:"jewel",
+    lede:"A wearable lock pendant drawn like a Bauhaus sketch: one continuous bent line closed by a round screw collar. Made in the TUMO Studios jewelry making course, worn on a chain or as a necklace.",
+    brief:["The brief was a single piece of jewelry with a clear theme. I picked the Bauhaus: primary shapes, honest materials, form that follows function. The pendant is one tube bent into a stepped, zig-zag outline, with a cylindrical collar where the line meets itself.","The collar is the functional part. It opens so the pendant can slip onto a chain or a cord without tools, then closes to lock it in place. I modelled and rendered the form first, then made the physical piece in the studio and finished it in brushed gold."],
+    steps:[],
+    outcome:"One line, one circle, two ways to wear it: a small object that carries the Bauhaus idea from sketch to neck." },
+  { slug:"banjaranoc", title:"Banjaranoc", kind:"Art & experiments", field:"Personal art page", year:"2023 – now", role:"Artist", tools:"Blender, After Effects, Photoshop",
+    img:"work/art/card.webp", hero:"work/art/hero.webp", body:"art",
+    lede:"A personal art page where 3D, glitch and motion meet the uncanny: brains on lab trays, grinning ceramic heads and spiders built from hex nuts.",
+    brief:["Banjaranoc is where I make things nobody asked for. No brief, no client, no brand guidelines: just an idea, a render and a reaction.","Each piece usually lives as a small series. One object gets rendered, then broken: through a fisheye, through pixel-sorting, through a different light or colour. The variations are as much the work as the original."],
+    steps:[],
+    outcome:"An ongoing playground for form, material and mood. Follow along on Instagram at @banjaranoc." },
+  { slug:"spice-station", title:"Spice Station", kind:"Product design", field:"Kitchen · concept", year:"2024", role:"Industrial designer, 3D", tools:"Blender",
+    img:"work/spice/card.webp", hero:"work/spice/kitchen.webp", heroWide:true, body:"spice",
+    lede:"A wall-mounted station for spices and cereals that lives on the backsplash and slides down to the counter when you need it.",
+    brief:["Counters fill up fast: spice jars, cereal boxes, oil bottles. This station takes them off the worktop and onto the wall, then brings them back with one smooth pull when it's time to cook.","The body is a single graphite block with rounded edges and two thin grooves that frame the front. Glass spice shakers drop into the top, a tall cereal dispenser stands at the back, and a hidden steel rail on the rear lets the whole unit slide. Modelling, texturing, lighting and rendering were all done in Blender."],
+    steps:[],
+    outcome:"Storage that disappears into the wall and slides into reach: less clutter, faster prep." },
+  { slug:"ui-ux", title:"UI / UX Designs", kind:"Web app UI", field:"Fintech · iGaming", year:"2023 – 25", role:"UI/UX designer", tools:"Figma",
+    img:"work/ui/card.webp", hero:"work/ui/hero.webp", body:"ui",
+    lede:"Two interfaces, two moods: EcoPay, a calm light-mode finance dashboard, and WinClub, a dark, high-energy casino and sportsbook.",
+    brief:["Dashboards and lobbies have the same job: show a lot of information without overwhelming people. The difference is the feeling. Money needs calm and clarity; a casino needs excitement without chaos.","Both designs use a fixed left sidebar, a clear content grid and one strong accent colour, so the structure stays familiar while the tone changes completely."],
+    steps:[],
+    outcome:"Same layout logic, opposite moods: clear hierarchy first, personality second." }
+];
+
+/* ============ CASE STUDY BODIES (real projects) ============ */
+const BODIES = {
+  ui: () => {
+    const D = "work/ui/";
+    const eco = [["Layout","Sidebar navigation, KPI row, cards, charts"],["KPIs","Four ring gauges for transactions, deposits, withdrawals"],["Cards","Swipeable payment cards with brand gradients"],["Mode","Light by default, with a dark-mode toggle"]];
+    const win = [["Layout","Top nav, category sidebar, hero banner, game grid"],["Sports","15 sport shortcuts in one scrollable row"],["Slots","Cards with rating, spins, bonus and one red CTA"],["Mode","Night mode by default, with a language switch"]];
+    const cell = arr => arr.map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>EcoPay</h2><p>A personal finance dashboard. Soft lavender, white cards and colour-coded rings make balances and trends readable in seconds.</p></header>
+      <figure class="shot sk"><img src="${D}ecopay.webp" alt="EcoPay analytics dashboard with sidebar, KPI rings, payment cards and savings charts" loading="lazy"><figcaption>Analytics dashboard · light mode</figcaption></figure>
+      <dl class="specs four">${cell(eco)}</dl>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>WinClub</h2><p>A casino and sportsbook lobby. Deep navy keeps the focus on the game art, while green marks money and red marks action.</p></header>
+      <figure class="shot sk"><img src="${D}winclub.webp" alt="WinClub casino lobby with hero banner, sport icons and new slot cards" loading="lazy"><figcaption>Casino lobby · night mode</figcaption></figure>
+      <dl class="specs four">${cell(win)}</dl>
+    </section>`;
+  },
+  jewel: () => {
+    const D = "work/jewel/";
+    const sw = [["Bauhaus red","#D6402B","214 64 43"],["Bauhaus blue","#1F4E9C","31 78 156"],["Bauhaus yellow","#F2B630","242 182 48",1],["Ink","#161616","22 22 22"],["Paper","#EEE7D7","238 231 215",1],["Brushed gold","#C9A245","201 162 69",1]];
+    const sp = [["Form","One continuous tube, bent into a stepped outline"],["Closure","Round screw collar opens and locks the loop"],["Wear","On a link chain or a cord / collar necklace"],["Finishes","Polished gold and polished silver"],["Theme","Bauhaus: line, circle, primary colour"],["Made at","TUMO Studios, jewelry making course"]];
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>At a glance</h2><p>A pendant reduced to two Bauhaus elements: a drawn line and a circle that locks it.</p></header>
+      <dl class="specs three">${sp.map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>Two finishes</h2><p>The same form in polished gold and polished silver, each set on a primary-colour field.</p></header>
+      <div class="mprops">
+        <figure><img src="${D}fgold.webp" alt="Gold pendant on a yellow circle over a blue field" loading="lazy"></figure>
+        <figure><img src="${D}fsilver.webp" alt="Silver pendant on a black square over a yellow field" loading="lazy"></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>How to wear it</h2><p>Unscrew the collar, slide it on, lock it. It takes a fine link chain or a rigid wire collar, so the same piece works delicate or bold.</p></header>
+      <div class="mprops tall">
+        <figure><img src="${D}wchain.webp" alt="Gold pendant hanging from a fine gold link chain over a red circle" loading="lazy"></figure>
+        <figure><img src="${D}wneck.webp" alt="Silver pendant locked onto a round wire collar necklace over a blue square" loading="lazy"></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>The real piece</h2><p>The finished pendant made in the studio, hung on a waxed cord and photographed in natural light.</p></header>
+      <div class="art-row three tallr">
+        <figure class="ag"><img src="${D}p_window.webp" alt="Pendant on a cord, backlit against a window" loading="lazy"></figure>
+        <figure class="ag"><img src="${D}p_wall.webp" alt="Gold pendant on a black cord against a pale wall" loading="lazy"></figure>
+        <figure class="ag"><img src="${D}p_easel.webp" alt="Gold pendant hanging between the legs of a wooden easel" loading="lazy"></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">05</span><h2>Palette</h2><p>Bauhaus primaries on warm paper, with the metal as the only gradient.</p></header>
+      <div class="swatches">${sw.map(([n,h,r,light]) => `<button class="sw${light ? " lt" : ""}" style="--c:${h}" data-hex="${h}"><span class="sw-n">${n}</span><span class="sw-h">${h}</span><span class="sw-r">${r}</span></button>`).join("")}</div>
+    </section>`;
+  },
+  spice: () => {
+    const D = "work/spice/";
+    const sp = [["Mount","Wall plate with a steel slide rail"],["Motion","Slides down to the counter, back up when done"],["Storage","Spice shakers on top, cereal dispenser at the back"],["Body","Graphite powder-coat, rounded industrial form"],["Jars","Glass with steel lid and perforated shaker disc"],["Made in","Blender: modelling, texturing, lighting, render"]];
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>At a glance</h2><p>Mounted on the backsplash beside the sink, it frees the counter and keeps ingredients at eye level.</p></header>
+      <dl class="specs three">${sp.map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>The object</h2><p>Front with containers lifted out, and the body in three-quarter view showing the twin doors and the dispensing tray.</p></header>
+      <div class="mprops">
+        <figure><img src="${D}front.webp" alt="Front view of the station with spice jars and cereal tube lifted out above it" loading="lazy"><figcaption>Front · exploded</figcaption></figure>
+        <figure><img src="${D}tilt.webp" alt="Three-quarter view of the station showing doors and dispensing tray" loading="lazy"><figcaption>Three-quarter</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Slide mechanism</h2><p>A steel plate screws to the wall; the body hooks onto its rail and glides down to counter height.</p></header>
+      <div class="mprops">
+        <figure><img src="${D}back.webp" alt="Rear of the station showing the steel mounting plate and slide rail" loading="lazy"><figcaption>Rear &amp; rail</figcaption></figure>
+        <figure><img src="${D}mount.webp" alt="Close-up of the wall plate with screw tabs and slide slots" loading="lazy"><figcaption>Wall plate detail</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>Spice jar</h2><p>Three parts: a glass body, a perforated shaker disc and a polished steel cap.</p></header>
+      <div class="mprops one-wide"><figure><img src="${D}jar.webp" alt="Exploded spice jar: steel cap, perforated disc and glass body" loading="lazy"><figcaption>Exploded jar</figcaption></figure></div>
+    </section>`;
+  },
+  art: () => {
+    const D = "work/art/";
+    const im = (f, alt, cls = "") => `<figure class="ag ${cls}"><img src="${D}${f}.webp" alt="${alt}" loading="lazy"></figure>`;
+    const vd = (f, alt, cls = "", ar = 1) => `<figure class="ag ${cls}" style="--ar:${ar}"><video src="${D}${f}.mp4" poster="${D}${f}.jpg" autoplay muted loop playsinline aria-label="${alt}"></video></figure>`;
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>Specimen</h2><p>A glossy brain on a steel lab tray, needles hovering, a cracked jar of green. Then the same scene through a fisheye, and again crushed into pixels.</p></header>
+      <div class="art-row three">${im("brain","Purple brain on a steel tray with needles and a green jar")}${im("brain_fish","The brain scene seen through a circular fisheye")}${im("brain_pix","Pixelated violet version of the brain scene")}</div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>Vessel</h2><p>A grinning ceramic face-jug in lacquer red. It drips, it melts, it turns to molten gold.</p></header>
+      <div class="art-row three">${im("head","Glossy red ceramic face-jug on black")}${vd("vessel","Animated red face-jug with liquid pouring from its top")}${im("head_gold","Gold glitch version of the face-jug")}</div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Nut spider</h2><p>Three hex nuts and eight bent rods. A spider made from hardware, lit like a product shot.</p></header>
+      <div class="art-row nut">${im("spider","Spider made of hex nuts and rods on red","big")}${im("spider_close","Close-up of the nut spider's welded legs")}${im("spider_bw","Black and white nut spider")}</div>
+      <div class="art-row one">${vd("spider","Nut spider animated in low light","wide")}</div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>Motion</h2><p>Loops and experiments: stippled dither portraits, halftone eyes, liquid glass and a TV-headed ribcage.</p></header>
+      <div class="art-row motion">${vd("dither","Dithered animation of a woman's hair blowing in a field","",1.017)}${vd("eyes","Halftone animation of blinking eyes","",1.5)}${vd("glass","Pink liquid glass shapes with a metallic bug","",0.5625)}${vd("tv","Ribcage figure with an old TV for a head","",0.5626)}</div>
+      <a class="btn hot sk ig" href="https://www.instagram.com/banjaranoc/" target="_blank" rel="noopener">Follow @banjaranoc ↗</a>
+    </section>`;
+  },
+  egg: () => {
+    const D = "work/egg/";
+    const lens = [["Field of view","185° with a true circular fisheye image"],["Focus","Manual ring for precise control"],["Optics","High-quality glass element"],["Body","Compact and lightweight for daily carry"]];
+    const ui = [["Centre","Shutter: one tap to shoot"],["Gallery","Browse photos and clips"],["Settings","Switch fisheye / normal, resolution"],["Profile","Creator account and sharing"],["Delete","Clear the last shot fast"],["Power","Ring around the button shows battery level"]];
+    const cell = arr => arr.map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>Hatching</h2><p>The packaging is a cracked eggshell. Lift the top and the camera floats out: the unboxing is the brand moment.</p></header>
+      <div class="mprops">
+        <figure class="dark" style="background:#8a0f2a"><video src="${D}unbox.mp4" poster="${D}unbox.jpg" autoplay muted loop playsinline aria-label="Animated unboxing: the eggshell packaging opens and the camera floats out"></video><figcaption>Unboxing animation</figcaption></figure>
+        <figure><img src="${D}pack.webp" alt="Egg Cam floating between the two halves of its zig-zag cracked packaging" loading="lazy"><figcaption>Cracked-shell packaging</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>The lens</h2><p>A domed fisheye front element sits in a ribbed focus ring, the visual centre of the whole product.</p></header>
+      <div class="trud-duo">
+        <figure class="shot sk"><img src="${D}lens.webp" alt="Close-up of the domed fisheye lens with orange ring and ribbed focus barrel" loading="lazy" style="aspect-ratio:1;object-fit:cover;height:100%"><figcaption>Fisheye lens</figcaption></figure>
+        <dl class="specs">${cell(lens)}</dl>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Anatomy</h2><p>Every control is placed for one-handed shooting: shutter on the corner, fisheye dial and flash on top, ports grouped under a single flap.</p></header>
+      <div class="egg3">
+        <figure><img src="${D}buttons.webp" alt="Callouts: fisheye controller, flash button, shutter button, focus light and flash" loading="lazy"><figcaption>Controls</figcaption></figure>
+        <figure><img src="${D}power.webp" alt="Callouts: power button with battery capacity ring" loading="lazy"><figcaption>Power &amp; battery</figcaption></figure>
+        <figure><img src="${D}ports.webp" alt="Callouts: speaker grille, Type-C charge port, USB 3.0 and mini-jack" loading="lazy"><figcaption>Ports &amp; speaker</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>Interface</h2><p>The back screen uses a radial menu around the shutter, so every function is one thumb movement away.</p></header>
+      <div class="trud-duo">
+        <figure class="shot sk"><img src="${D}ui.webp" alt="Back of the Egg Cam with a radial orange menu: gallery, settings, profile and delete around the shutter" loading="lazy" style="aspect-ratio:1;object-fit:cover;height:100%"><figcaption>Radial UI</figcaption></figure>
+        <dl class="specs">${cell(ui)}</dl>
+      </div>
+    </section>`;
+  },
+  models: () => {
+    const D = "work/models/";
+    const notes = [["Topology","Low to mid poly, clean edge flow, ready for LODs"],["Texturing","PBR metal / roughness sets, baked from high poly"],["Surface story","Wear, rust and grime placed where use would leave it"],["Delivery","Engine-ready export, consistent texel density"]];
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>Retro arcade cabinet</h2><p>A miniature upright cabinet with a custom octopus side-art illustration, pixel-art screen and worn controls. Shot in a small tabletop scene to sell the scale.</p></header>
+      <div class="mgrid">
+        <figure class="m-a"><img src="${D}front.webp" alt="Front of the arcade cabinet with joysticks, buttons and coin door" loading="lazy"><figcaption>Coin door &amp; controls</figcaption></figure>
+        <figure class="m-b"><img src="${D}top.webp" alt="Arcade cabinet from above showing the marquee and side art grid" loading="lazy"><figcaption>Marquee &amp; side art</figcaption></figure>
+        <figure class="m-c"><img src="${D}controls.webp" alt="Close-up of the arcade joysticks and buttons with shallow depth of field" loading="lazy"><figcaption>Control panel macro</figcaption></figure>
+        <figure class="m-d"><img src="${D}back.webp" alt="Back of the arcade cabinet next to a potted plant" loading="lazy"><figcaption>Rear &amp; scene props</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>Props</h2><p>Two smaller assets focused on materials: layered rust and chipped paint on steel, and a riveted shield with painted wood and scuffed iron.</p></header>
+      <div class="mprops">
+        <figure><img src="${D}cylinder_sq.webp" alt="Rusty orange gas cylinder with coiled hose and warning stickers" loading="lazy"><figcaption>Gas cylinder</figcaption></figure>
+        <figure class="dark"><video src="${D}shield.mp4" poster="${D}shield.jpg" autoplay muted loop playsinline aria-label="Battle-worn round shield rotating 360 degrees"></video><figcaption>Shield · 360°</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Pipeline</h2><p>The same checklist for every asset, so it behaves in-engine exactly as it does in the render.</p></header>
+      <dl class="specs four">${notes.map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
+    </section>`;
+  },
+  trud: () => {
+    const D = "work/trud/";
+    const sw = [["Oxide", "#512013", "Leather · warm colourway", false],["Graphite", "#1A1A1A", "Frame · core colourway", false],["Aluminium", "#D8D8D8", "Metal · light colourway", true]];
+    const specs = [["Headband","Dual parallel rails, light yet rigid"],["Earcups","Compact circular cups, soft inner mesh"],["Cap","Spun aluminium with concentric grooves"],["Upholstery","Matte synthetic leather"],["Markings","Subtle L / R in the surface finish"],["Use","Foldable, portable, built for daily carry"]];
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>Form</h2><p>Two thin rails replace the usual solid band: lighter, more open, and instantly recognisable in silhouette.</p></header>
+      <div class="trud-duo">
+        <figure class="shot sk"><video src="${D}turn.mp4" poster="${D}turn.jpg" autoplay muted loop playsinline aria-label="TRUD Echo rotating 360 degrees"></video><figcaption>360° turntable</figcaption></figure>
+        <dl class="specs">${specs.map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>Views</h2><p>Side, front and two folding states. The cups rotate flat to pack the headphone into a compact profile.</p></header>
+      <div class="views">${["Side","Front","Folding","Folded"].map((n,i) => `<figure><img src="${D}view${i}.webp" alt="TRUD Echo ${n.toLowerCase()} view" loading="lazy"><figcaption>${n}</figcaption></figure>`).join("")}</div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Details</h2><p>Brushed metal, matte leather and a wired connection that clicks home with a satisfying motion.</p></header>
+      <figure class="shot sk"><video src="${D}cable.mp4" poster="${D}cable.jpg" autoplay muted loop playsinline aria-label="Audio cable connecting to the TRUD Echo earcup"></video><figcaption>Cable detail</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>Colourways</h2><p>Three finishes: warm oxide leather, graphite, and brushed aluminium. Tap a swatch to copy its hex.</p></header>
+      <figure class="shot sk"><video src="${D}colors.mp4" poster="${D}colors.jpg" autoplay muted loop playsinline aria-label="TRUD Echo in three colourways on stone plinths"></video><figcaption>Oxide · Graphite · Aluminium</figcaption></figure>
+      <div class="swatches">${sw.map(([n,h,r,light]) => `<button class="sw${light ? " lt" : ""}" style="--c:${h}" data-hex="${h}"><span class="sw-n">${n}</span><span class="sw-h">${h}</span><span class="sw-r">${r}</span></button>`).join("")}</div>
+    </section>`;
+  },
+  banners: () => {
+    const D = "work/banners/";
+    const old = [["old_sweet","Sweet Rush Bonanza"],["old_midnight","Midnight Fortune"],["old_weekend","Weekend Spins Rush"],["old_wicked","Wicked Halloween Boost"],["old_champions","Champions Clash"]];
+    const neu = [["new_wager","$10,000 Wager Royale"],["new_weekly","Weekly Challenge"],["new_diamond","Diamond Status Unlocked"],["new_bounce","Bet & Bounce Back"],["new_biweekly","Biweekly Updates"]];
+    const kz = [["kz_small","Start small. Swim far."],["kz_bold","Only the bold swim here"],["kz_withdraw","Withdrawal notice"],["kz_password","Password reset"]];
+    const g = (arr, cls) => `<div class="bgrid ${cls}">${arr.map(([f,a]) => `<figure class="bshot"><img src="${D}${f}.webp" alt="${a} banner" loading="lazy"></figure>`).join("")}</div>`;
+    const toggle = (id, before, after, note) => `
+      <div class="ba" id="${id}" data-state="after">
+        <div class="ba-tabs" role="tablist"><button role="tab" data-v="before" aria-selected="false">Before</button><button role="tab" data-v="after" aria-selected="true">After</button><span class="ba-note">${note}</span></div>
+        <div class="ba-stage"><div class="ba-pane" data-v="before">${before}</div><div class="ba-pane" data-v="after">${after}</div></div>
+      </div>`;
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>BitFortune banners</h2><p>Before: a pastel candy world with soft characters and busy backgrounds. After: a dark cinematic look, one strong pose, a yellow headline word and a small label chip. Same panda, much more presence. Switch between them.</p></header>
+      ${toggle("ba1", g(old,"one"), g(neu,"one"), "tap to compare")}
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>Banners in motion</h2><p>Hero banners also ship as short loops: a slow camera push, a blink, a breath of mist. Enough movement to catch the eye without fighting the text.</p></header>
+      <figure class="shot sk"><video src="${D}streak.mp4" poster="${D}streak.jpg" autoplay muted loop playsinline aria-label="Animated Deposit Streak banner with the panda climbing a cliff"></video><figcaption>Deposit Streak, animated</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Originals thumbnails</h2><p>Thirteen in-house games, redrawn as one family. The bright mixed gradients became one deep navy base, so the 3D object of each game does the talking and the grid reads as a set.</p></header>
+      ${toggle("ba2", `<figure class="shot sk"><img src="${D}orig_old.webp" alt="Original Originals thumbnails on bright multicoloured gradients" loading="lazy"></figure>`, `<figure class="shot sk"><img src="${D}orig_new.webp" alt="Redesigned Originals thumbnails on a unified dark navy background" loading="lazy"></figure>`, "tap to compare")}
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>Kazabet pixel series</h2><p>A retro arcade campaign: chunky pixel type, grid backgrounds and a raccoon in shades who shows up for promos and for the boring stuff too, like withdrawals and password resets.</p></header>
+      ${g(kz,"two")}
+    </section>`;
+  },
+  bet502: () => {
+    const D = "work/bet502/";
+    const sw = [
+      ["Lucky Green", "#3BD910", "Primary · logo, highlights", true],
+      ["Clover", "#00AB06", "Secondary · gradients, buttons", false],
+      ["Tangerine", "#FE9226", "Accent · doodles, energy", true],
+      ["Lemon", "#FBE840", "Accent · wins, coins", true],
+      ["Brick", "#AB2500", "Alert · hot offers", false],
+      ["Oxblood", "#3A0000", "Depth · shadows", false]
+    ];
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>The wordmark</h2><p>Hand-lettered with a graffiti bounce. A four-leaf clover sprouts from the B, the 5 and 0 interlock, and one long swash ties the name together.</p></header>
+      <figure class="shot sk"><img src="${D}logo.webp" alt="BET502 hand-lettered wordmark in bright green with a four-leaf clover growing from the B" loading="lazy"><figcaption>Primary wordmark</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>Meet Lucky Willy</h2><p>A four-leaf clover born under casino neon, obsessed with baseball. Every pitch is a chance, every swing a gamble, every home run a jackpot.</p></header>
+      <figure class="shot sk"><img src="${D}story.webp" alt="The story of Lucky Willy: a cheerful 3D four-leaf clover mascot holding a baseball bat, beside his backstory and personality" loading="lazy"><figcaption>Character story</figcaption></figure>
+      <blockquote class="pull green"><p>Swing hard, swing lucky!</p><cite>Lucky Willy's catchphrase</cite></blockquote>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Colour</h2><p>Two greens carry the brand. Tangerine and lemon bring the street energy and the wins; brick and oxblood add heat for hot offers. Tap a swatch to copy its hex.</p></header>
+      <div class="swatches">${sw.map(([n,h,r,light]) => `<button class="sw${light ? " lt" : ""}" style="--c:${h}" data-hex="${h}"><span class="sw-n">${n}</span><span class="sw-h">${h}</span><span class="sw-r">${r}</span></button>`).join("")}</div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>Icon system</h2><p>The clover B works on its own. One mark, three containers, tested down to 16 pixels so it stays readable in a browser tab.</p></header>
+      <div class="icon-board">
+        <div class="ib-set">
+          <div class="ib-hero"><img src="${D}mark.png" alt="BET502 clover B mark"><div><span class="ib-l">The clover B</span><span class="ib-s">Brand mark · minimum size 16 px</span></div></div>
+          <div class="ib-item"><div class="ib-app"><img src="${D}mark.png" alt=""></div><span class="ib-l">App icon</span><span class="ib-s">1024 px · iOS / Android</span></div>
+          <div class="ib-item"><div class="ib-social"><img src="${D}mark.png" alt=""></div><span class="ib-l">Social avatar</span><span class="ib-s">Circle crop · 400 px</span></div>
+          <div class="ib-item"><div class="ib-fav"><span class="ib-tab"><img src="${D}mark.png" alt="" width="16"><i>BET502 · Casino</i></span><span class="ib-sizes"><img src="${D}mark.png" alt="" style="height:64px"><img src="${D}mark.png" alt="" style="height:32px"><img src="${D}mark.png" alt="" style="height:16px"></span></div><span class="ib-l">Favicon</span><span class="ib-s">64 · 32 · 16 px</span></div>
+        </div>
+        <figure class="ib-willy"><img src="${D}willy_hoodie.webp" alt="Lucky Willy in a purple hoodie biting into a cheeseburger" loading="lazy"><figcaption>Willy, off-duty</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">05</span><h2>Doodle kit</h2><p>A hand-drawn set of arrows, crowns, hearts, stars, currency signs and numbers in tangerine marker. Dropped onto banners and socials to keep everything feeling made by hand.</p></header>
+      <figure class="shot sk"><img src="${D}doodles.webp" alt="Grid of orange hand-drawn marker doodles: arrows, crowns, hearts, stars, currency symbols and numbers" loading="lazy"><figcaption>Brush-marker graphic elements</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">06</span><h2>Promo banners</h2><p>Each campaign gets its own colour world and its own Willy: batter for casino, footballer for sports, a thunder-god for the daily challenge.</p></header>
+      <figure class="shot sk"><img src="${D}b_casino.webp" alt="Casino offer banner: 370% welcome bonus with Lucky Willy holding a bat among clover coins" loading="lazy"><figcaption>Casino · Welcome bonus</figcaption></figure>
+      <div class="duo even">
+        <figure class="shot sk"><img src="${D}b_sports.webp" alt="Sports offer banner: up to 40% combo boost with Willy in a purple football kit" loading="lazy"><figcaption>Sports · Combo boost</figcaption></figure>
+        <figure class="shot sk"><img src="${D}b_daily.webp" alt="Daily challenge banner: Be first, win Q10,000, with Willy as a bearded thunder god" loading="lazy"><figcaption>Daily challenge</figcaption></figure>
+      </div>
+    </section>`;
+  },
+  anubet: () => {
+    const D = "work/anubet/";
+    const sw = [
+      ["Obsidian", "#111010", "Base · backgrounds", false],
+      ["Ash", "#393939", "Surface · panels, cards", false],
+      ["Anubis Magenta", "#940666", "Primary · logo, CTAs", false],
+      ["Royal Wine", "#680046", "Depth · gradients, hover", false],
+      ["Ember", "#FF8800", "Accent · urgency, timers", true],
+      ["Sun Gold", "#F8CF19", "Highlight · wins, VIP", true]
+    ];
+    const use = [["#111010",45],["#393939",20],["#940666",15],["#680046",10],["#FF8800",6],["#F8CF19",4]];
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>The logomark</h2><p>The A is a jackal head built on a pyramid: the ears form the apex and the snout cuts through the crossbar. Drawn on a strict diagonal grid so it holds up from favicon to billboard.</p></header>
+      <figure class="shot sk"><img src="${D}logo.webp" alt="Anubet wordmark in white with a magenta A shaped like a jackal head, on a dark temple background" loading="lazy"><figcaption>Primary lock-up</figcaption></figure>
+      <div class="duo even">
+        <figure class="shot sk"><img src="${D}grid.webp" alt="Construction grid of the Anubet A mark with red diagonal guide lines" loading="lazy"><figcaption>Construction grid</figcaption></figure>
+        <figure class="shot sk"><img src="${D}variants.webp" alt="Two Anubet logo versions: orange-gold mark and magenta mark" loading="lazy"><figcaption>Colour variants of the lock-up</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>Colour</h2><p>Obsidian and ash carry the interface; magenta is the brand's heartbeat. Ember and gold are kept for wins, timers and VIP moments. Tap a swatch to copy its hex.</p></header>
+      <div class="swatches">${sw.map(([n,h,r,light]) => `<button class="sw${light ? " lt" : ""}" style="--c:${h}" data-hex="${h}"><span class="sw-n">${n}</span><span class="sw-h">${h}</span><span class="sw-r">${r}</span></button>`).join("")}</div>
+      <div class="usage" aria-label="Approximate share of each colour on screen">${use.map(([h,v]) => `<span style="--c:${h};flex:${v};color:${["#FF8800","#F8CF19"].includes(h) ? "#111010" : "#fff"}" title="${v}%"><i>${v >= 6 ? v + "%" : ""}</i></span>`).join("")}</div>
+      <p class="cs-cap">Approximate share on screen</p>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Typography</h2><p>Karantina in three weights: a tall, condensed face with a carved feel that fits stone, temples and big promo numbers.</p></header>
+      <figure class="shot sk"><img src="${D}type.webp" alt="Typography slide: a stone letter T with a magenta gem, next to Karantina Light, Regular and Bold" loading="lazy"><figcaption>Karantina Light · Regular · Bold</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>World &amp; mascot</h2><p>The brand comes with lore. Khem'tar, Warden of Shadows, guarded the path between life and death and now watches over every wager.</p></header>
+      <figure class="shot sk"><img src="${D}story.webp" alt="Anubet brand story: the god of chance reborn through blockchain, keeper of fairness in the crypto casino" loading="lazy"><figcaption>Brand story</figcaption></figure>
+      <blockquote class="pull"><p>Every bet is an offering. Every win, a blessing.</p><cite>From the Anubet brand story</cite></blockquote>
+      <figure class="shot sk"><img src="${D}character.webp" alt="Khem'tar, a dark jackal-headed warrior with violet eyes, beside his backstory text" loading="lazy"><figcaption>Khem'tar, Warden of Shadows</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">05</span><h2>Game icons</h2><p>A 3D icon set in weathered metal and magenta crystal: gem, coin, slot machine, treasure chest, roulette wheel and cut stone.</p></header>
+      <figure class="shot sk"><img src="${D}icons.webp" alt="Six 3D casino icons in dark metal with magenta gems: diamond, coin, slot machine, chest, roulette wheel and octagonal gem" loading="lazy"><figcaption>3D icon set</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">06</span><h2>Promo banners</h2><p>Four campaign banners built from the brand world: weathered metal, temple torchlight and the magenta glow. Big Karantina numbers, one clear call to action.</p></header>
+      <figure class="shot sk"><img src="${D}banners.webp" alt="Four Anubet promo banners: Weekend Spins Rush, Up to 15% Cashback, $3000 Welcome Bonus and +50% Combo Boost, each with a Claim Now button" loading="lazy"><figcaption>Weekend spins · Cashback · Welcome bonus · Combo boost</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">07</span><h2>Support avatars</h2><p>Customer support gets faces from the same world: five temple keepers in obsidian skin and bronze collars, each lit in its own colour so players can tell agents apart in chat. The jackal mark stands in for the automated assistant.</p></header>
+      <div class="avatars anu">${[["Nefra","Live agent","#d1309a"],["Isel","Live agent","#9b4ddb"],["Amara","Live agent","#5a5ee8"],["Tiye","Live agent","#2aa3c4"],["Khafre","Live agent","#e0413a"],["Anubot","Auto-reply","#d1309a"]].map(([n,t,c],i) => `<div class="av" style="--g:${c}"><img src="${D}cs${i+1}.webp" alt="${n}: Anubet support avatar" loading="lazy"><b>${n}</b><span>${t}</span></div>`).join("")}</div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">08</span><h2>Casino lobby</h2><p>Desktop lobby with promo carousel, live wins, game rows, sports and live chat. Magenta drives every button and highlight; everything else stays stone and shadow.</p></header>
+      <figure class="shot sk"><img src="${D}lobby_magenta.webp" alt="Anubet desktop casino lobby in magenta with sidebar, promo banners, live wins, slots and chat" loading="lazy"><figcaption>Desktop lobby</figcaption></figure>
+    </section>`;
+  },
+  bettcat: () => {
+    const D = "work/bettcat/";
+    const sw = [
+      ["Lagoon Breeze", "#84E1E6", "Primary · logo, highlights", true],
+      ["Harvest Gold", "#D4AF37", "Accent · rewards, VIP", true],
+      ["Electric Aqua", "#00CAD5", "Interactive · buttons, links", true],
+      ["Midnight Navy", "#000321", "Base · backgrounds", false],
+      ["Deep Graphite", "#1B252E", "Surface · cards, panels", false],
+      ["Forest Bronze", "#3D3C02", "Depth · gold shadows", false]
+    ];
+    const use = [["#000321",40],["#1B252E",25],["#84E1E6",18],["#00CAD5",8],["#D4AF37",7],["#3D3C02",2]];
+    return `
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">01</span><h2>Logo &amp; mascot</h2><p>A wordmark with a cartoon bounce and a mascot with attitude. The squint, the fedora and the half-smile do the selling before a single word is read.</p></header>
+      <figure class="shot sk"><img src="${D}story.webp" alt="BettCat wordmark above the brand story, with the fedora-wearing cat mascot rising from the bottom" loading="lazy"><figcaption>Brand story spread</figcaption></figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">02</span><h2>Colour</h2><p>Lagoon Breeze leads and Harvest Gold rewards. Navy and graphite keep the lobby calm, so games and wins stay the brightest things on screen. Tap a swatch to copy its hex.</p></header>
+      <div class="swatches">${sw.map(([n,h,r,light]) => `<button class="sw${light ? " lt" : ""}" style="--c:${h}" data-hex="${h}"><span class="sw-n">${n}</span><span class="sw-h">${h}</span><span class="sw-r">${r}</span></button>`).join("")}</div>
+      <div class="usage" aria-label="Approximate share of each colour on screen">${use.map(([h,v]) => `<span style="--c:${h};flex:${v};color:${["#84E1E6","#00CAD5","#D4AF37"].includes(h) ? "#0b0f1a" : "#fff"}" title="${v}%"><i>${v >= 7 ? v + "%" : ""}</i></span>`).join("")}</div>
+      <p class="cs-cap">Approximate share on screen</p>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">03</span><h2>Typography</h2><p>Impact for loud promo headlines, Poppins for everything people actually read: menus, balances, chat.</p></header>
+      <figure class="shot sk type-shot">
+        <div class="fix">
+          <img src="${D}type.webp" alt="Type specimen: Impact as the primary headline font with giant AaBb letters, and Poppins as the secondary font in six weights" loading="lazy">
+          <svg viewBox="0 0 2034 1070" aria-hidden="true"><rect x="1578" y="904" width="170" height="52" fill="#0d0d0d"/><text x="1587" y="940" font-family="Poppins, sans-serif" font-weight="800" font-size="33" fill="#88e1e4">Extrabold</text></svg>
+        </div>
+        <figcaption>Type pairing</figcaption>
+      </figure>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">04</span><h2>Banners &amp; motion</h2><p>Promo banners built around the mascot: the VIP Club and the welcome bonus. The VIP banner also ships as a short animated loop.</p></header>
+      <div class="duo">
+        <figure class="shot sk"><img src="${D}banners.webp" alt="Two BettCat promo banners: VIP Club with the mascot between two admirers, and a $3000 welcome bonus with the mascot in a gold chain" loading="lazy"><figcaption>Static promo set</figcaption></figure>
+        <figure class="shot sk vid"><video src="${D}vip.mp4" poster="${D}vip_poster.jpg" autoplay muted loop playsinline aria-label="Animated BettCat VIP Club banner"></video><figcaption>VIP banner, animated loop</figcaption></figure>
+      </div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">05</span><h2>VIP ranks</h2><p>Five glossy 3D paw badges for the loyalty ladder. Same shape at every level, so players read progress through material alone: from warm bronze up to deep sapphire.</p></header>
+      <div class="ranks">${[["bronze","Bronze","Level 1","#c9824c"],["silver","Silver","Level 2","#c9cdd2"],["gold","Gold","Level 3","#D4AF37"],["amethyst","Amethyst","Level 4","#8a4fe0"],["sapphire","Sapphire","Level 5","#3d8fe0"]].map(([k,n,l,c],i) => `<div class="rank" style="--g:${c};--i:${i}"><img src="${D}rank_${k}.webp" alt="${n} paw rank badge" loading="lazy"><b>${n}</b><span>${l}</span></div>`).join("")}</div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">06</span><h2>Default avatars</h2><p>Five starter profile pictures from the same mob: matching pinstripes and blue fedoras, but each cat brings its own fur, pose and attitude, so new players can pick a personality before they ever place a bet.</p></header>
+      <div class="avatars">${[["The Dame","Arms crossed"],["Shadow","Calls the shots"],["Ginger","The muscle"],["Smokey","The planner"],["Calico","The charmer"]].map(([n,t],i) => `<div class="av" style="--i:${i}"><img src="${D}av${i+1}.webp" alt="${n}: BettCat default avatar, cat in a blue pinstripe suit" loading="lazy"><b>${n}</b><span>${t}</span></div>`).join("")}</div>
+    </section>
+    <section class="cs">
+      <header class="cs-h"><span class="cs-n">07</span><h2>Casino lobby</h2><p>Desktop lobby with promo carousel, live wins ticker, game rows and live chat, all in one dark, calm layout that lets the game art carry the colour.</p></header>
+      <figure class="shot sk"><img src="${D}web.webp" alt="BettCat desktop casino lobby with sidebar navigation, promo banners, live wins, slots and live chat" loading="lazy"><figcaption>Desktop web</figcaption></figure>
+      <figure class="shot sk"><img src="${D}mobile.webp" alt="BettCat mobile lobby shown on a phone lying on a dark metal grate" loading="lazy"><figcaption>Mobile web</figcaption></figure>
+    </section>`;
+  }
+};
+
+/* ============ RENDER WORKS ============ */
+const grid = $("#worksGrid");
+const coverImgs = [];
+function renderWorks() {
+  const C = pal();
+  grid.innerHTML = PROJECTS.map((p, i) => `
+    <button class="work" data-i="${i}" aria-label="Open ${p.title}, ${p.kind}">
+      <span class="tp"></span>
+      <span class="cv">${p.img ? `<img src="${p.img}" alt="${p.title} cover" loading="lazy">` : COVERS[i](C)}</span>
+      <span class="meta"><span class="wt">${p.title}</span><span class="kind">${p.kind}${p.year ? `<br>${p.year}` : ""}</span></span>
+      <svg class="circle" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M8 14 C40 2 86 4 96 30 C102 62 94 96 52 98 C14 99 0 70 3 40 C5 22 18 10 34 8"/></svg>
+      <span class="press">squeeze me!</span>
+    </button>`).join("");
+  // rasterizable versions for the explosion shards
+  PROJECTS.forEach((p, i) => {
+    const img = new Image();
+    img.src = p.img || ("data:image/svg+xml;charset=utf-8," + encodeURIComponent(COVERS[i](C)));
+    coverImgs[i] = img;
+  });
+}
+renderWorks();
+const mq = matchMedia("(prefers-color-scheme: dark)");
+mq.addEventListener?.("change", () => { renderWorks(); if (current >= 0) renderProject(current); });
+new MutationObserver(() => { renderWorks(); if (current >= 0) renderProject(current); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+/* ticker */
+const tools = ["Figma","Blender","Photoshop","Illustrator","After Effects","Substance Painter","3ds Max","AutoCAD","SolidWorks","AI workflows","Branding","Motion","3D","Product"];
+const t = tools.map(x => `<span>${x}</span><i>✶</i>`).join("");
+$("#ticker").innerHTML = t + t;
+
+/* ============ SOUND: synthesized rubber chicken ============ */
+let ac = null, soundOn = true;
+function audio() { if (!ac) { try { ac = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { ac = null; } } if (ac && ac.state === "suspended") ac.resume(); return ac; }
+function squeak(power = 1) {
+  if (!soundOn) return; const a = audio(); if (!a) return;
+  const t0 = a.currentTime, dur = 0.42 + Math.random() * 0.18 + power * 0.12;
+  const base = 820 + Math.random() * 300 - power * 120;
+  const out = a.createGain(); out.gain.value = 0.9; out.connect(a.destination);
+  const env = a.createGain();
+  env.gain.setValueAtTime(0.0001, t0);
+  env.gain.exponentialRampToValueAtTime(0.32 * Math.min(1.4, power), t0 + 0.025);
+  env.gain.setValueAtTime(0.28 * Math.min(1.4, power), t0 + dur * 0.6);
+  env.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+  const f1 = a.createBiquadFilter(); f1.type = "bandpass"; f1.frequency.value = 1700; f1.Q.value = 1.4;
+  const f2 = a.createBiquadFilter(); f2.type = "peaking"; f2.frequency.value = 3100; f2.gain.value = 9; f2.Q.value = 2;
+  const hp = a.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 380;
+  f1.connect(f2); f2.connect(hp); hp.connect(env); env.connect(out);
+  const mk = (type, detune) => {
+    const o = a.createOscillator(); o.type = type; o.detune.value = detune;
+    o.frequency.setValueAtTime(base * 0.62, t0);
+    o.frequency.exponentialRampToValueAtTime(base * 1.55, t0 + 0.07);
+    o.frequency.exponentialRampToValueAtTime(base * 1.22, t0 + dur * 0.55);
+    o.frequency.exponentialRampToValueAtTime(base * 0.74, t0 + dur);
+    const lfo = a.createOscillator(); lfo.frequency.value = 26 + Math.random() * 14;
+    const lg = a.createGain(); lg.gain.value = base * 0.05; lfo.connect(lg); lg.connect(o.frequency);
+    o.connect(f1); o.start(t0); lfo.start(t0); o.stop(t0 + dur + 0.05); lfo.stop(t0 + dur + 0.05);
+  };
+  mk("sawtooth", 0); mk("square", 14);
+  // breathy air
+  const n = a.createBuffer(1, Math.ceil(a.sampleRate * dur), a.sampleRate), d = n.getChannelData(0);
+  for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  const ns = a.createBufferSource(); ns.buffer = n;
+  const ng = a.createGain(); ng.gain.value = 0.18; const nf = a.createBiquadFilter(); nf.type = "bandpass"; nf.frequency.value = 2600; nf.Q.value = .8;
+  ns.connect(nf); nf.connect(ng); ng.connect(env); ns.start(t0);
+}
+const soundBtn = $("#soundBtn");
+soundBtn.addEventListener("click", e => {
+  soundOn = !soundOn; soundBtn.setAttribute("aria-pressed", soundOn);
+  soundBtn.innerHTML = `sound: <b>${soundOn ? "on" : "off"}</b>`;
+  try { localStorage.setItem("ay-sound", soundOn ? "1" : "0"); } catch (_) {}
+});
+try { if (localStorage.getItem("ay-sound") === "0") { soundOn = false; soundBtn.setAttribute("aria-pressed", "false"); soundBtn.innerHTML = "sound: <b>off</b>"; } } catch (_) {}
+
+/* ============ CHICKEN CURSOR ============ */
+const chick = $("#chick");
+const CH = { x: innerWidth / 2, y: innerHeight / 2, tx: innerWidth / 2, ty: innerHeight / 2, rot: 0, spin: 0, spinV: 0, sc: 1, scT: 1, idle: 0, last: performance.now(), seen: false };
+let chickW = 27, chickH = 121;
+chick.addEventListener("load", () => { chickH = chick.getBoundingClientRect().height || 134; });
+if (finePointer) document.documentElement.classList.add("chick-on");
+addEventListener("pointermove", e => {
+  if (e.pointerType !== "mouse") return;
+  CH.tx = e.clientX; CH.ty = e.clientY; CH.idle = 0;
+  if (!CH.seen) { CH.x = CH.tx; CH.y = CH.ty; CH.seen = true; }
+  const over = e.target.closest && e.target.closest("a,button,.work");
+  CH.scT = over ? 1.25 : 1;
+}, { passive: true });
+document.addEventListener("mouseleave", () => chick.style.opacity = 0);
+document.addEventListener("mouseenter", () => chick.style.opacity = 1);
+
+function tickChick(now) {
+  const dt = Math.min(50, now - CH.last); CH.last = now; CH.idle += dt;
+  const k = 1 - Math.pow(0.0008, dt / 1000);
+  const px = CH.x, py = CH.y;
+  CH.x += (CH.tx - CH.x) * Math.min(1, k * 1.4);
+  CH.y += (CH.ty - CH.y) * Math.min(1, k * 1.4);
+  const vx = (CH.x - px) / Math.max(1, dt) * 16;
+  const lean = Math.max(-38, Math.min(38, vx * 2.2));
+  CH.rot += (lean - CH.rot) * 0.18;
+  // idle: lazy float spin every ~4.5s
+  if (!reduce && CH.idle > 4500) { CH.spinV += 29; CH.idle = 0; }
+  CH.spin += CH.spinV; CH.spinV *= 0.92; if (Math.abs(CH.spinV) < 0.4) { CH.spinV = 0; CH.spin -= Math.round(CH.spin / 360) * 360; CH.spin *= 0.9; }
+  CH.sc += (CH.scT - CH.sc) * 0.2;
+  const bob = reduce ? 0 : Math.sin(now / 320) * 5;
+  const sway = reduce ? 0 : Math.sin(now / 520) * 6;
+  chick.style.transform = `translate(${CH.x - chickW / 2}px, ${CH.y - 6 + bob}px) rotate(${CH.rot + sway + CH.spin}deg) scale(${CH.sc})`;
+  chick.style.transformOrigin = `50% ${chickH * 0.35}px`;
+  requestAnimationFrame(tickChick);
+}
+if (finePointer) requestAnimationFrame(tickChick);
+
+const WORDS = ["squeak!", "SQUAWK", "bwok?", "eeeee!", "honk.", "bwaaak!"];
+function popWord(x, y, word) {
+  const s = document.createElement("span"); s.className = "pop";
+  s.textContent = word || WORDS[Math.random() * WORDS.length | 0];
+  s.style.left = x + "px"; s.style.top = y + "px"; s.style.setProperty("--rr", (Math.random() * 30 - 15) + "deg");
+  document.body.appendChild(s); setTimeout(() => s.remove(), 850);
+}
+addEventListener("pointerdown", e => {
+  audio();
+  if (e.target.closest(".work")) return; // works get the big explosion instead
+  squeak(0.8);
+  if (!reduce) { CH.spinV += 29; CH.sc = 0.7; }
+  popWord(e.clientX, e.clientY);
+});
+
+/* ============ EXPLOSION ============ */
+const cv = $("#fx"), cx = cv.getContext("2d");
+let parts = [], running = false, DPR = 1;
+function sizeFx() { DPR = Math.min(2, devicePixelRatio || 1); cv.width = innerWidth * DPR; cv.height = innerHeight * DPR; }
+sizeFx(); addEventListener("resize", sizeFx);
+
+function explode(card, i, ox, oy) {
+  const C = pal();
+  const r = card.querySelector(".cv").getBoundingClientRect();
+  const img = coverImgs[i];
+  const cols = 5, rows = 4, cw = r.width / cols, chh = r.height / rows;
+  for (let gx = 0; gx < cols; gx++) for (let gy = 0; gy < rows; gy++) {
+    const x0 = gx * cw, y0 = gy * chh;
+    const jx = () => (Math.random() - .5) * cw * .3;
+    const tris = Math.random() > .5
+      ? [[[x0, y0], [x0 + cw, y0], [x0, y0 + chh]], [[x0 + cw, y0], [x0 + cw, y0 + chh], [x0, y0 + chh]]]
+      : [[[x0, y0], [x0 + cw, y0], [x0 + cw, y0 + chh]], [[x0, y0], [x0 + cw, y0 + chh], [x0, y0 + chh]]];
+    tris.forEach(tri => {
+      const sx = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, sy = (tri[0][1] + tri[1][1] + tri[2][1]) / 3;
+      const px = r.left + sx, py = r.top + sy;
+      const ang = Math.atan2(py - oy, px - ox) + (Math.random() - .5) * .6;
+      const sp = 6 + Math.random() * 12;
+      parts.push({ t: "shard", x: px, y: py, sx, sy, w: r.width, h: r.height, img,
+        pts: tri.map(([a, b]) => [a - sx, b - sy]), vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 6,
+        rot: 0, vr: (Math.random() - .5) * .35, life: 0, max: 70 + Math.random() * 30 });
+    });
+  }
+  const colors = [C.violet, C.yellow, C.red, C.ink];
+  for (let k = 0; k < 70; k++) {
+    const ang = Math.random() * Math.PI * 2, sp = 4 + Math.random() * 16;
+    const kind = ["star", "squig", "blob", "feather"][Math.random() * 4 | 0];
+    parts.push({ t: kind, x: ox, y: oy, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 4, rot: Math.random() * 6, vr: (Math.random() - .5) * .3,
+      s: 6 + Math.random() * 14, c: colors[Math.random() * colors.length | 0], ink: C.ink, life: 0, max: 50 + Math.random() * 40 });
+  }
+  parts.push({ t: "burst", x: ox, y: oy, life: 0, max: 46, c: C.yellow, ink: C.ink, v: C.violet,
+    word: ["BOOM!", "SQUAWK!", "KA-BWOK!", "POP!"][Math.random() * 4 | 0], rot: (Math.random() - .5) * .4 });
+  if (!running) { running = true; requestAnimationFrame(loop); }
+}
+function star(c, s) { c.beginPath(); for (let i = 0; i < 10; i++) { const r = i % 2 ? s * .45 : s; const a = i * Math.PI / 5 - Math.PI / 2; c.lineTo(Math.cos(a) * r, Math.sin(a) * r); } c.closePath(); }
+function loop() {
+  cx.setTransform(DPR, 0, 0, DPR, 0, 0); cx.clearRect(0, 0, innerWidth, innerHeight);
+  parts = parts.filter(p => p.life < p.max);
+  for (const p of parts) {
+    p.life++;
+    const fade = Math.max(0, 1 - Math.max(0, p.life - p.max * .55) / (p.max * .45));
+    cx.save(); cx.globalAlpha = fade;
+    if (p.t === "burst") {
+      const k = Math.min(1, p.life / 8), sc = (0.3 + k * 1.0) * (1 + p.life * 0.004);
+      cx.translate(p.x, p.y); cx.rotate(p.rot); cx.scale(sc, sc);
+      cx.beginPath(); for (let i = 0; i < 28; i++) { const r = i % 2 ? 70 : 118 + (i % 4) * 8; const a = i / 28 * Math.PI * 2; cx.lineTo(Math.cos(a) * r * 1.25, Math.sin(a) * r * .8); } cx.closePath();
+      cx.fillStyle = p.c; cx.fill(); cx.lineWidth = 4; cx.strokeStyle = "#16151b"; cx.stroke();
+      cx.font = "64px 'Caveat Brush', cursive"; cx.textAlign = "center"; cx.textBaseline = "middle";
+      cx.lineWidth = 8; cx.strokeStyle = "#16151b"; cx.strokeText(p.word, 0, 4); cx.fillStyle = "#fff"; cx.fillText(p.word, 0, 4);
+    } else {
+      p.vy += 0.55; p.vx *= 0.985; p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+      cx.translate(p.x, p.y); cx.rotate(p.rot);
+      if (p.t === "shard") {
+        cx.beginPath(); p.pts.forEach(([a, b], j) => j ? cx.lineTo(a, b) : cx.moveTo(a, b)); cx.closePath();
+        cx.save(); cx.clip(); if (p.img.complete) cx.drawImage(p.img, -p.sx, -p.sy, p.w, p.h); cx.restore();
+        cx.lineWidth = 1.6; cx.strokeStyle = "#16151b"; cx.stroke();
+      } else if (p.t === "star") { star(cx, p.s); cx.fillStyle = p.c; cx.fill(); cx.lineWidth = 1.6; cx.strokeStyle = p.ink; cx.stroke(); }
+      else if (p.t === "squig") { cx.beginPath(); cx.moveTo(-p.s, 0); cx.bezierCurveTo(-p.s / 2, -p.s, p.s / 2, p.s, p.s, 0); cx.lineWidth = 3; cx.lineCap = "round"; cx.strokeStyle = p.c; cx.stroke(); }
+      else if (p.t === "blob") { cx.beginPath(); cx.ellipse(0, 0, p.s * .6, p.s * .4, 0, 0, 7); cx.fillStyle = p.c; cx.fill(); }
+      else { cx.beginPath(); cx.moveTo(0, -p.s); cx.quadraticCurveTo(p.s * .6, 0, 0, p.s); cx.quadraticCurveTo(-p.s * .6, 0, 0, -p.s); cx.fillStyle = "#ffe01a"; cx.fill(); cx.lineWidth = 1.2; cx.strokeStyle = "#16151b"; cx.stroke(); cx.beginPath(); cx.moveTo(0, -p.s); cx.lineTo(0, p.s); cx.stroke(); }
+    }
+    cx.restore();
+  }
+  if (parts.length) requestAnimationFrame(loop); else { running = false; cx.clearRect(0, 0, innerWidth, innerHeight); }
+}
+
+/* ============ PROJECT VIEW ============ */
+const view = $("#project");
+let current = -1, lastCard = null;
+function renderProject(i) {
+  const p = PROJECTS[i], C = pal(), n = (i + 1) % PROJECTS.length;
+  view.innerHTML = `
+  <div class="wrap">
+    <div class="p-top">
+      <button class="btn sk" data-close>← back to the sketchbook</button>
+      <span class="hint">case study · ${String(i + 1).padStart(2, "0")} of ${String(PROJECTS.length).padStart(2, "0")}</span>
+    </div>
+    <section class="p-hero">
+      <div>
+        <div class="kicker">${p.kind} · ${p.field}</div>
+        <h1 id="pTitle">${p.title}</h1>
+        <p class="lede">${p.lede}</p>
+      </div>
+      <div class="p-cover"><span class="tape t1"></span><span class="tape t2"></span><span class="cv">${p.img ? `<img src="${p.hero || p.img}" alt="${p.title} logo">` : COVERS[i](C)}</span></div>
+    </section>
+    <dl class="facts sk">
+      <div><dt>Role</dt><dd>${p.role}</dd></div>
+      ${p.year ? `<div><dt>Year</dt><dd>${p.year}</dd></div>` : `<div><dt>Course</dt><dd>TUMO Studios</dd></div>`}
+      <div><dt>Discipline</dt><dd>${p.kind}</dd></div>
+      <div><dt>Tools</dt><dd>${p.tools}</dd></div>
+    </dl>
+    <section class="story"><h2>The brief</h2><div>${p.brief.map(x => `<p>${x}</p>`).join("")}</div></section>
+    ${p.body ? BODIES[p.body](p) : `<ol class="steps">${p.steps.map((s, k) => `<li><div class="n">${k + 1}</div><h3>${s[0]}</h3><p>${s[1]}</p></li>`).join("")}</ol>`}
+    <div class="outcome sk"><p>${p.outcome}</p><button class="btn hot sk" data-close>more works ↺</button></div>
+    <nav class="next"><span class="lbl">next sketch</span><button class="big" data-next="${n}">${PROJECTS[n].title} →</button></nav>
+  </div>`;
+}
+function openProject(i, ox, oy, card) {
+  current = i; lastCard = card || null;
+  renderProject(i);
+  view.style.setProperty("--cx", (ox ?? innerWidth / 2) + "px");
+  view.style.setProperty("--cy", (oy ?? innerHeight / 2) + "px");
+  view.hidden = false; view.classList.remove("closing");
+  view.scrollTop = 0;
+  requestAnimationFrame(() => requestAnimationFrame(() => view.classList.add("open")));
+  document.documentElement.style.overflow = "hidden";
+  if (location.hash !== "#" + PROJECTS[i].slug) history.pushState(null, "", "#" + PROJECTS[i].slug);
+  setTimeout(() => $("[data-close]", view)?.focus({ preventScroll: true }), 500);
+}
+function closeProject(push = true) {
+  if (current < 0) return;
+  view.classList.remove("open"); view.classList.add("closing");
+  setTimeout(() => {
+    view.hidden = true; view.classList.remove("closing"); view.innerHTML = "";
+    document.documentElement.style.overflow = "";
+    document.querySelectorAll(".work.gone").forEach(c => { c.classList.remove("gone"); if (!reduce) c.animate([{ scale: ".6", opacity: 0 }, { scale: "1.08", opacity: 1, offset: .7 }, { scale: "1" }], { duration: 520, easing: "cubic-bezier(.3,1.6,.5,1)" }); });
+    lastCard?.focus({ preventScroll: true });
+    current = -1;
+  }, reduce ? 10 : 600);
+  if (push) history.pushState(null, "", "#works");
+}
+view.addEventListener("click", e => {
+  const bt = e.target.closest(".ba-tabs button");
+  if (bt) { const ba = bt.closest(".ba"); ba.dataset.state = bt.dataset.v; ba.querySelectorAll(".ba-tabs button").forEach(x => x.setAttribute("aria-selected", x === bt)); return; }
+  const swb = e.target.closest(".sw");
+  if (swb) { const hx = swb.dataset.hex; navigator.clipboard?.writeText(hx).catch(() => {}); popWord(e.clientX, e.clientY, hx + " copied"); return; }
+  if (e.target.closest("[data-close]")) closeProject();
+  const nx = e.target.closest("[data-next]");
+  if (nx) { const i = +nx.dataset.next; view.classList.remove("open"); renderProject(i); current = i; view.scrollTop = 0; history.replaceState(null, "", "#" + PROJECTS[i].slug); requestAnimationFrame(() => view.classList.add("open")); }
+});
+addEventListener("keydown", e => { if (e.key !== "Escape") return; const lb = document.getElementById("lb"); if (lb) { lb.remove(); return; } if (current >= 0) closeProject(); });
+
+grid.addEventListener("click", e => {
+  const card = e.target.closest(".work"); if (!card) return;
+  const i = +card.dataset.i;
+  const r = card.getBoundingClientRect();
+  const ox = e.clientX || r.left + r.width / 2, oy = e.clientY || r.top + r.height / 2;
+  squeak(1.4);
+  if (reduce) { openProject(i, ox, oy, card); return; }
+  CH.spinV += 40; CH.sc = 0.5;
+  explode(card, i, ox, oy);
+  card.classList.add("gone");
+  setTimeout(() => openProject(i, ox, oy, card), 380);
+});
+
+function route() {
+  const h = location.hash.slice(1);
+  const i = PROJECTS.findIndex(p => p.slug === h);
+  if (i >= 0 && i !== current) openProject(i);
+  else if (i < 0 && current >= 0) closeProject(false);
+}
+addEventListener("popstate", route);
+route();
+
+/* ============ CV DOWNLOAD ============ */
+const cvBtn = $("#cvBtn"), cvStatus = $("#cvStatus");
+let dl = null;
+(async () => { try { dl = window.claude?.use ? await window.claude.use("downloads") : null; } catch (_) { dl = null; } })();
+cvBtn.addEventListener("click", async e => {
+  if (!dl) return; // plain link fallback opens the PDF
+  e.preventDefault();
+  try {
+    const res = await fetch("Alex_Yandyan_CV.pdf"); const blob = await res.blob();
+    await dl.save({ filename: "Alex_Yandyan_CV.pdf", data: blob });
+    cvStatus.textContent = "got it! the CV is yours ✓";
+  } catch (err) {
+    cvStatus.textContent = err && err.code === "declined" ? "no worries, it'll be right here." : "hmm, that didn't work. try again in a sec.";
+  }
+});
+
+/* ============ COPY ============ */
+document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => {
+  const el = $("#" + b.dataset.copy); const txt = el.textContent;
+  const done = () => { b.textContent = "copied!"; setTimeout(() => b.textContent = "copy", 1400); };
+  navigator.clipboard?.writeText(txt).then(done, () => { const s = getSelection(), r = document.createRange(); r.selectNodeContents(el); s.removeAllRanges(); s.addRange(r); b.textContent = "select + ⌘C"; });
+}));
+})();
+</script>
+
+</body></html>
